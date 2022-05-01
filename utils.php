@@ -152,74 +152,90 @@ function showPost($post)
     if ($post->type === "note") {
 
 ?>
-        <div class="h-entry">
+        <article class="h-entry">
             <?php include "partials/author.php" ?>
 
-            <p class="p-content p-name p-summary">
-                <?= $post->content ?>
-            </p>
+            <div>
+                <p class="p-content p-name p-summary">
+                    <?= $post->content ?>
+                </p>
 
-            <time class="dt-published"><?= $date ?></time>
-        </div>
+                <time class="dt-published"><?= $post->date ?></time>
+            </div>
+        </article>
     <?php
 
     } else if ($post->type == "reply") {
 
     ?>
-        <div class="h-entry">
+        <article class="h-entry">
             <?php include "partials/author.php" ?>
 
-            <div class="p-content">
-                <p class="p-name">🗩 Reply to <a href="<?= $post->in_reply_to ?>" class="u-in-reply-to"><?= $post->in_reply_to ?></a></p>
-                <p class="p-summary">
-                    <?= $post->content ?>
-                </p>
-            </div>           
+            <div>
+                <div class="p-content">
+                    <p class="p-name">🗩 Reply to <a href="<?= $post->in_reply_to ?>" class="u-in-reply-to"><?= $post->in_reply_to ?></a></p>
+                    <p class="p-summary">
+                        <?= $post->content ?>
+                    </p>
+                </div>           
 
-            <time class="dt-published"><?= $date ?></time>
-        </div>
+                <time class="dt-published"><?= $post->date ?></time>
+            </div>
+        </article>
     <?php
 
     } else if ($post->type == "repost") {
 
     ?>
-        <div class="h-entry">
+        <article class="h-entry">
             <?php include "partials/author.php" ?>
 
-            <p class="p-content p-name">🔥 Repost of <a href="<?= $post->repost_of ?>" class="u-repost-of h-cite"><?= $post->repost_of ?></a></p>
+            <div>
+                <p class="p-content p-name">
+                    🔥 Repost of <a href="<?= $post->repost_of ?>" class="u-repost-of h-cite"><?= $post->repost_of ?></a>
+                </p>
 
-            <time class="dt-published"><?= $date ?></time>
-        </div>
+                <time class="dt-published"><?= $post->date ?></time>
+            </div>
+        </article>
     <?php
 
     } else if ($post->type == "like") {
 
         ?>
-            <div class="h-entry">
+            <article class="h-entry">
                 <?php include "partials/author.php" ?>
     
-                <p class="p-content p-name">❤️ Like of <a href="<?= $post->like_of ?>" class="u-like-of h-cite"><?= $post->like_of ?></a></p>
+                <div>
+                    <p class="p-content p-name">
+                        ❤️ Like of <a href="<?= $post->like_of ?>" class="u-like-of h-cite"><?= $post->like_of ?></a>
+                    </p>
     
-                <time class="dt-published"><?= $date ?></time>
-            </div>
+                    <time class="dt-published"><?= $post->date ?></time>
+                </div>
+            </article>
         <?php
     
     } else if ($post->type == "bookmark") {
 
     ?>
-        <div class="h-entry">
+        <article class="h-entry">
             <?php include "partials/author.php" ?>
 
-            <div class="p-content">
-                <p class="p-name">🔖 Bookmark of <a href="<?= $post->bookmark_of ?>" class="u-bookmark-of h-cite"><?= $post->name ?></a></p>
+            <div>
+                <div class="p-content">
+                    <p class="p-name">
+                        🔖 Bookmark of <a href="<?= $post->bookmark_of ?>" class="u-bookmark-of h-cite"><?= $post->name ?></a>
+                    </p>
 
-                <p class="p-summary">
-                    <?= $post->content ?>
-                </p>
+                    <p class="p-summary">
+                        <?= $post->content ?>
+                    </p>
+                </div>
+
+                <time class="dt-published"><?= $post->date ?></time>
             </div>
-
-            <time class="dt-published"><?= $date ?></time>
-        </div>
+        </article>
     <?php
 
     }

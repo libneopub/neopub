@@ -12,6 +12,8 @@ require "utils.php";
     <link rel="stylesheet" type="text/css" href="assets/main.css">
 
     <title><?= $site_title; ?></title>
+
+    <link rel="alternate" type="application/rss+xml" title="<?= $site_title ?>" href="<?= $site_url . "/content/feed.json" ?>" />
     
     <!-- Micro{sub, pub} -->
     <link rel="microsub" href="<?= $microsub ?>">
@@ -27,22 +29,7 @@ require "utils.php";
     <link rel="pingback" href="<?= $pingback ?>" />
 </head>
 <body>
-    <div class="h-card" rel="author" id="author">
-        <div>
-            <img class="u-photo" id="author-img" alt="profile picture" src="assets/me.jpeg">
-            <div id="card" class="md">
-                <h1 class="p-name"><?= $site_author ?></h1>
-                <address class="properties">
-                    <a class="u-url u-uid" href="https://geheimesite.nl">https://geheimesite.nl</a> ∙ 
-                    <a rel="me" href="https://github.com/<?= $github_user ?>">github</a> ∙
-                    <a rel="me" href="https://micro.blog/Robijntje">Micro.blog</a> 
-                </address>
-                <p class="p-note">
-
-                </p>
-            </div>
-        </div>
-    </div>
+    <?php include "partials/header.php" ?>
     <?php listPosts() ?>
 </body>
 </html>

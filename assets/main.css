@@ -53,10 +53,8 @@ html {
 
 body {
     height: 100%;
-    background-color: rgb(255, 255, 255);
     max-width: 900px;
     margin: 0 auto;
-    padding: 10px;
 }
 
 a {
@@ -90,28 +88,31 @@ a:active {
 
 /* Make posts pretty */
 .h-entry {
-    padding: 3px;
-    border: 1px solid gray;
+    padding: 7px;
+    border: 1px solid rgb(171, 170, 170);
     background-color: white;
     border-radius: 6px;
     display: flex;
     flex-direction: row;
+    gap: 7px;
+    margin-top: 10px;
 }
 
 .u-photo {
     border-radius: 6px;
-    max-width: 60px;
+    width: 60px;
     aspect-ratio: 1/1;
     object-fit: cover;
 }
 
-.h-entry > p {
-    font-size: 27px;
+.h-entry p {
+    font-size: 20px;
+    margin-top: 0;
 }
 
 time {
-    font-size: 10px;
-    color: gray;
+    font-size: 12px;
+    color: rgb(84, 87, 94);
 }
 
 .h-card > div {
@@ -123,4 +124,13 @@ time {
 
 .h-card h1 {
     margin-bottom: 2px;
+}
+
+header {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid rgb(171, 170, 170);
+    border-top: none;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px
 }
