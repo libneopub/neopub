@@ -36,4 +36,4 @@ LimitRequestBody 102400
 
 # Pretty URLs
 Options +FollowSymLinks
-RewriteRule ^user/(.*)$ ./index.php?user=$1
+RewriteRule ^post/(.*)$ ./post.php?id=$1

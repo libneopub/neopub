@@ -9,7 +9,7 @@ function newNote($content, $date, $categories)
     global $site_author;
 
     $id = uniqid();
-    $url = $site_url . "/" . $id;
+    $url = $site_url . "/post/" . $id;
     $author = array("name" => $site_author);
 
     $post = array(
@@ -33,7 +33,7 @@ function newReply($content, $date, $replyto)
     global $site_author;
 
     $id = uniqid();
-    $url = $site_url . "/" . $id;
+    $url = $site_url . "/post/" . $id;
     $author = array("name" => $site_author);
 
     $post = array(
@@ -55,7 +55,7 @@ function newRepost($repostof, $categories)
     global $site_url;
 
     $id = uniqid();
-    $url = $site_url . "/" . $id;
+    $url = $site_url . "/post/" . $id;
 
     $post = array(
         "type" => "repost",
@@ -76,7 +76,7 @@ function newBookmark($content, $bookmarkof, $title, $categories)
     global $site_url;
 
     $id = uniqid();
-    $url = $site_url . "/" . $id;
+    $url = $site_url . "/post/" . $id;
 
     $post = array(
         "type" => "bookmark",
