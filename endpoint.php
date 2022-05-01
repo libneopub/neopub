@@ -56,8 +56,8 @@ if (!isset($values['scope'])) {
 if (substr($values['me'], -1) != '/') {
     $values['me'] .= '/';
 }
-if (substr($site_url, -1) != '/') {
-    $site_url .= '/';
+if (substr($domain_url, -1) != '/') {
+    $domain_url .= '/';
 }
 if (strtolower($values['me']) != strtolower($site_domain)) {
     header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
