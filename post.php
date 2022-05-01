@@ -11,8 +11,6 @@ require "utils.php";
 
     <link rel="stylesheet" type="text/css" href="assets/main.css">
 
-    <title><?= $post->id . " by @" . $post->author->name . " — " . $site_title; ?></title>
-
     <?php
     if (isset($_GET['id'])) {
         $post = getPost($_GET['id']);
@@ -20,6 +18,8 @@ require "utils.php";
         header("Location: index.php");
     }
     ?>
+
+    <title><?= $post->id . " by @" . $post->author->name . " — " . $site_title; ?></title>
 
     <!-- Micro{sub, pub} -->
     <link rel="microsub" href="<?= $microsub ?>">
