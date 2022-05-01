@@ -13,7 +13,7 @@ require "utils.php";
 
     <title><?= $site_title; ?></title>
 
-    <link rel="alternate" type="application/rss+xml" title="<?= $site_title ?>" href="<?= $site_url . "/content/feed.json" ?>" />
+    <link rel="alternate" type="application/rss+xml" title="<?= $site_title ?>" href="<?= $site_url . "/content/feed" ?>" />
     
     <!-- Micro{sub, pub} -->
     <link rel="microsub" href="<?= $microsub ?>">

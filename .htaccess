@@ -1,6 +1,7 @@
 RewriteEngine On
 
 AddCharset UTF-8 .html
+AddCharset UTF-8 .php
 
 <FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
 	Header set Expires "access plus 1 day"
