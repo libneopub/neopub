@@ -59,7 +59,7 @@ if (substr($values['me'], -1) != '/') {
 if (substr($site_url, -1) != '/') {
     $site_url .= '/';
 }
-if (strtolower($values['me']) != strtolower($site_url)) {
+if (strtolower($values['me']) != strtolower($site_domain)) {
     header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
     echo 'Mismatching "me" value in authentication token.';
     exit;

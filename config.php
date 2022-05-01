@@ -4,6 +4,7 @@ $site_url = 'https://micro.geheimesite.nl';
 $site_language = 'en-US';
 $site_description = '';
 $site_author = 'Robijntje';
+$site_domain = "https://geheimesite.nl"; // used if "me" deviates from site uri
 
 // IndieAuth
 $token_endpoint = 'https://tokens.indieauth.com/token';
