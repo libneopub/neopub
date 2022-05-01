@@ -225,4 +225,15 @@ function showPost($post)
     }
 }
 
+function debugEndpoint() {
+    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+    print_r($_POST);
+
+    $file = fopen("log.json", 'w+');
+    fwrite($file, json_encode($_POST));
+    fclose($file);
+
+    exit;
+}
+
 ?>

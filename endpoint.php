@@ -86,16 +86,7 @@ if (!isset($_POST['content'])) {
 (such as $_POST['content'], $_POST['category'], $_POST['location'], etc.)
 e.g. create a new entry, store it in a database, whatever. */
 
-header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-print_r($_POST);
-
-print_r($_POST['category']);
-
-$file = fopen("log.json", 'w+');
-fwrite($file, json_encode($_POST));
-fclose($file);
-
-exit;
+// debugEndpoint();
 
 if(isset($_POST['in-reply-to'])) {
     newReply($_POST['content'], $_POST['in-reply-to']);
