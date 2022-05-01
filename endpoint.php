@@ -4,6 +4,10 @@
 // Licensed under a CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
 // http://creativecommons.org/publicdomain/zero/1.0/
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require "config.php";
 require "utils.php";
 
