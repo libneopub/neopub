@@ -1,6 +1,8 @@
 <?php
 // Utils for getting and creating posts
 
+require "vendor/autoload.php";
+
 require "config.php";
 
 function newNote($content, $categories)
@@ -244,6 +246,13 @@ function debugEndpoint() {
     fclose($file);
 
     exit;
+}
+
+function sendWebmentions() {
+    global $site_url;
+
+    $client = new IndieWeb\MentionClient();
+    $client->sendMentions($site_url);
 }
 
 ?>

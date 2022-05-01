@@ -1,0 +1,5 @@
+{
+    "require": {
+        "indieweb/mention-client": "1.2.1"
+    }
+}

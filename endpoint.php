@@ -81,15 +81,19 @@ e.g. create a new entry, store it in a database, whatever. */
 
 if(isset($_POST['in-reply-to'])) {
     newReply($_POST['content'], $_POST['in-reply-to']);
+    sendWebmentions();
 } 
 else if(isset($_POST['repost-of'])) {
     newRepost($_POST['repost-of']);
+    sendWebmentions();
 }
 else if(isset($_POST['like-of'])) {
     newLike($_POST['like-of']);
+    sendWebmentions();
 } 
 else if(isset($_POST['bookmark-of'])) {
     newBookmark($_POST['content'], $_POST['bookmark-of'], $_POST['name'], $_POST['category']);
+    sendWebmentions();
 }
 else {
     newNote($_POST['content'], $_POST['category']);
