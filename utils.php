@@ -31,7 +31,7 @@ function newReply($content, $replyto)
 {
     global $site_url;
     global $site_author;
-    $date
+    
     $id = uniqid();
     $url = $site_url . "/post/" . $id;
     $author = array("name" => $site_author);
