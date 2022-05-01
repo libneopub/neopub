@@ -92,10 +92,10 @@ if(isset($_POST['in-reply-to'])) {
     newReply($_POST['content'], $_POST['in-reply-to']);
 } 
 else if(isset($_POST['repost-of'])) {
-    newRepost($_POST['repost-of'], $_POST['category']);
+    newRepost($_POST['repost-of']);
 }
 else if(isset($_POST['like-of'])) {
-    newLike($_POST['like-of'], $_POST['category']);
+    newLike($_POST['like-of']);
 } 
 else if(isset($_POST['bookmark-of'])) {
     newBookmark($_POST['content'], $_POST['bookmark-of'], $_POST['name'], $_POST['category']);

@@ -50,7 +50,7 @@ function newReply($content, $replyto)
     writePost($post);
 }
 
-function newRepost($repostof, $categories)
+function newRepost($repostof)
 {
     global $site_url;
 
@@ -60,9 +60,7 @@ function newRepost($repostof, $categories)
     $post = array(
         "type" => "repost",
         "repost-of" => $repostof,
-        "categories" => $categories,
         "date" => date("Y-m-d H:i:s"),
-        "tags" => $categories,
         "id" => $id,
         "uri" => $url
     );
@@ -71,7 +69,7 @@ function newRepost($repostof, $categories)
     writePost($post);
 }
 
-function newLike($likeof, $categories)
+function newLike($likeof)
 {
     global $site_url;
 
@@ -81,9 +79,7 @@ function newLike($likeof, $categories)
     $post = array(
         "type" => "like",
         "like-of" => $likeof,
-        "categories" => $categories,
         "date" => date("Y-m-d H:i:s"),
-        "tags" => $categories,
         "id" => $id,
         "uri" => $url
     );
