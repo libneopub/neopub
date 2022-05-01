@@ -72,11 +72,6 @@ if (!stristr($values['scope'], 'create')) {
     echo 'Missing "create" value in "scope".';
     exit;
 }
-if (!isset($_POST['content'])) {
-    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-    echo 'Missing "content" value.';
-    exit;
-}
 
 /* Everything's cool. Do something with the $_POST variables
 (such as $_POST['content'], $_POST['category'], $_POST['location'], etc.)
