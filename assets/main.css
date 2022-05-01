@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/** Scrollbar hack **/
+
+html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+}
+
+/** Smooth scrolling **/
+
+html {
+    scroll-behavior: smooth;
+}
+
+/** Borderbox hack **/
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Render sharp pixelart */
+.pixelart {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+html {
+    background-color: rgb(255, 102, 102);
+	background: linear-gradient(-45deg, #F59E0B, #DB2777, #0995ad, #38BDF8);
+	background-size: 400% 400%;
+	animation: gradient 60s ease infinite;
+	height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "Ubuntu", "Noto Sans", "Droid Sans", Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
+}
+
+body {
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+a {
+    color: rgb(255, 102, 102);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+a:active {
+    color: black;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	33% {
+		background-position: 100% 50%;
+	}
+	66% {
+		background-position: 50% 100%;
+	}
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Make posts pretty */
+.h-entry {
+    padding: 3px;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+}
+
+.u-photo {
+    border-radius: 6px;
+    max-width: 60px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.h-entry > p {
+    font-size: 27px;
+}
+
+time {
+    font-size: 10px;
+    color: gray;
+}
+
+.h-card > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+}
+
+.h-card h1 {
+    margin-bottom: 2px;
+}

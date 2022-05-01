@@ -1,0 +1,39 @@
+RewriteEngine On
+
+AddCharset UTF-8 .html
+
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
+	Header set Expires "access plus 1 day"
+</FilesMatch>
+
+<FilesMatch "\.(js|css|html|htm|php|xml)$">
+	SetOutputFilter DEFLATE
+</FilesMatch>
+
+# Remove .php from filenames
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Remove .html from filenames
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# GZip compression
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css  application/x-javascript
+	BrowserMatch ^Mozilla/4 gzip-only-text/html
+	BrowserMatch ^Mozilla/4\.0[678] no-gzip
+	BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</IfModule>
+
+# Disable the server signature
+ServerSignature Off
+
+# limit file uploads to 100K
+LimitRequestBody 102400
+
+# Pretty URLs
+Options +FollowSymLinks
+RewriteRule ^user/(.*)$ ./index.php?user=$1
