@@ -31,7 +31,7 @@ function newReply($content, $replyto)
 {
     global $site_url;
     global $site_author;
-    
+
     $id = uniqid();
     $url = $site_url . "/post/" . $id;
     $author = array("name" => $site_author);
@@ -60,6 +60,27 @@ function newRepost($repostof, $categories)
     $post = array(
         "type" => "repost",
         "repost-of" => $repostof,
+        "categories" => $categories,
+        "date" => date("Y-m-d H:i:s"),
+        "tags" => $categories,
+        "id" => $id,
+        "uri" => $url
+    );
+
+
+    writePost($post);
+}
+
+function newLike($likeof, $categories)
+{
+    global $site_url;
+
+    $id = uniqid();
+    $url = $site_url . "/post/" . $id;
+
+    $post = array(
+        "type" => "like",
+        "like-of" => $likeof,
         "categories" => $categories,
         "date" => date("Y-m-d H:i:s"),
         "tags" => $categories,
@@ -134,7 +155,7 @@ function showPost($post)
         <div class="h-entry">
             <?php include "partials/author.php" ?>
 
-            <p class="p-content p-name">
+            <p class="p-content p-name p-summary">
                 <?= $post->content ?>
             </p>
 
@@ -148,10 +169,12 @@ function showPost($post)
         <div class="h-entry">
             <?php include "partials/author.php" ?>
 
-            <p>In reply to <a href="<?= $post->in_reply_to ?>" class="u-in-reply-to"><?= $post->in_reply_to ?></a></p>
-            <p class="p-content p-name">
-                <?= $post->content ?>
-            </p>
+            <div class="p-content">
+                <p class="p-name">🗩 Reply to <a href="<?= $post->in_reply_to ?>" class="u-in-reply-to"><?= $post->in_reply_to ?></a></p>
+                <p class="p-summary">
+                    <?= $post->content ?>
+                </p>
+            </div>           
 
             <time class="dt-published"><?= $date ?></time>
         </div>
@@ -163,19 +186,37 @@ function showPost($post)
         <div class="h-entry">
             <?php include "partials/author.php" ?>
 
-            <p>Repost of <a href="<?= $post->repost_of ?>" class="u-repost-of h-cite"><?= $post->repost_of ?></a></p>
+            <p class="p-content p-name">🔥 Repost of <a href="<?= $post->repost_of ?>" class="u-repost-of h-cite"><?= $post->repost_of ?></a></p>
 
             <time class="dt-published"><?= $date ?></time>
         </div>
     <?php
 
+    } else if ($post->type == "like") {
+
+        ?>
+            <div class="h-entry">
+                <?php include "partials/author.php" ?>
+    
+                <p class="p-content p-name">❤️ Like of <a href="<?= $post->like_of ?>" class="u-like-of h-cite"><?= $post->like_of ?></a></p>
+    
+                <time class="dt-published"><?= $date ?></time>
+            </div>
+        <?php
+    
     } else if ($post->type == "bookmark") {
 
     ?>
         <div class="h-entry">
             <?php include "partials/author.php" ?>
 
-            <p>Bookmark of <a href="<?= $post->bookmark_of ?>" class="u-bookmark-of h-cite"><?= $post->bookmark_of ?></a></p>
+            <div class="p-content">
+                <p class="p-name">🔖 Bookmark of <a href="<?= $post->bookmark_of ?>" class="u-bookmark-of h-cite"><?= $post->name ?></a></p>
+
+                <p class="p-summary">
+                    <?= $post->content ?>
+                </p>
+            </div>
 
             <time class="dt-published"><?= $date ?></time>
         </div>

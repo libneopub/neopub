@@ -89,6 +89,8 @@ e.g. create a new entry, store it in a database, whatever. */
 header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
 print_r($_POST);
 
+echo($_POST['category']);
+
 $file = fopen("log.json", 'w+');
 fwrite($file, json_encode($_POST));
 fclose($file);
@@ -100,6 +102,9 @@ if(isset($_POST['in-reply-to'])) {
 } 
 else if(isset($_POST['repost-of'])) {
     newRepost($_POST['repost-of'], $_POST['category']);
+}
+else if(isset($_POST['like-of'])) {
+    newLike($_POST['like-of'], $_POST['category']);
 } 
 else if(isset($_POST['bookmark-of'])) {
     newBookmark($_POST['content'], $_POST['bookmark-of'], $_POST['name'], $_POST['category']);
