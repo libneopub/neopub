@@ -98,6 +98,15 @@ a:active {
     margin-top: 10px;
 }
 
+.warning {
+    padding: 7px;
+    border: 1px solid rgb(184, 116, 0);
+    background-color: rgb(255, 210, 132);
+    color: rgb(73, 51, 12);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
 .u-photo {
     border-radius: 6px;
     width: 60px;

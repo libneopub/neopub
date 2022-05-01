@@ -9,7 +9,7 @@ require "utils.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" type="text/css" href="assets/main.css">
+    <link rel="stylesheet" type="text/css" href="/assets/main.css">
 
     <?php
     if (isset($_GET['id'])) {
@@ -35,6 +35,10 @@ require "utils.php";
     <link rel="pingback" href="<?= $pingback ?>" />
 </head>
 <body>
+    <?php include "partials/header.php" ?>
+    <div class="warning">
+        You're viewing a single post. <a href="/">Return to timeline</a>
+    </div>
     <?php showPost($post) ?>
 </body>
 </html>

@@ -11,6 +11,10 @@ AddCharset UTF-8 .php
 	SetOutputFilter DEFLATE
 </FilesMatch>
 
+# Pretty URLs
+Options +FollowSymLinks
+RewriteRule ^post/(.*)$ ./post.php?id=$1
+
 # Remove .php from filenames
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -34,7 +38,3 @@ ServerSignature Off
 
 # limit file uploads to 100K
 LimitRequestBody 102400
-
-# Pretty URLs
-Options +FollowSymLinks
-RewriteRule ^post/(.*)$ ./post.php?id=$1
