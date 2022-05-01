@@ -77,11 +77,6 @@ if (!isset($_POST['content'])) {
     echo 'Missing "content" value.';
     exit;
 }
-if (!isset($_POST['published'])) {
-    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-    echo 'Missing "published" value.';
-    exit;
-}
 
 /* Everything's cool. Do something with the $_POST variables
 (such as $_POST['content'], $_POST['category'], $_POST['location'], etc.)
@@ -92,7 +87,7 @@ print_r($POST);
 exit;
 
 if(isset($_POST['in-reply-to'])) {
-    newReply($_POST['content'], $_POST['published'], $_POST['in-reply-to']);
+    newReply($_POST['content'], $_POST['in-reply-to']);
 } 
 else if(isset($_POST['repost-of'])) {
     newRepost($_POST['repost-of'], $_POST['category']);
@@ -101,7 +96,7 @@ else if(isset($_POST['bookmark-of'])) {
     newBookmark($_POST['content'], $_POST['bookmark-of'], $_POST['name'], $_POST['category']);
 }
 else {
-    newNote($_POST['content'], $_POST['published'], $_POST['category']);
+    newNote($_POST['content'], $_POST['category']);
 }
 
 header($_SERVER['SERVER_PROTOCOL'] . ' 201 Created');

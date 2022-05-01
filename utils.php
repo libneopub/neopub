@@ -3,7 +3,7 @@
 
 require "config.php";
 
-function newNote($content, $date, $categories)
+function newNote($content, $categories)
 {
     global $site_url;
     global $site_author;
@@ -17,7 +17,7 @@ function newNote($content, $date, $categories)
         "author" => $author,
         "categories" => $categories,
         "content" => $content,
-        "date" => $date,
+        "date" => date("Y-m-d H:i:s"),
         "site" => $site_url,
         "tags" => $categories,
         "id" => $id,
@@ -27,11 +27,11 @@ function newNote($content, $date, $categories)
     writePost($post);
 }
 
-function newReply($content, $date, $replyto)
+function newReply($content, $replyto)
 {
     global $site_url;
     global $site_author;
-
+    $date
     $id = uniqid();
     $url = $site_url . "/post/" . $id;
     $author = array("name" => $site_author);
@@ -41,7 +41,7 @@ function newReply($content, $date, $replyto)
         "in-reply-to" => $replyto,
         "author" => $author,
         "content" => $content,
-        "date" => $date,
+        "date" => date("Y-m-d H:i:s"),
         "site" => $site_url,
         "id" => $id,
         "uri" => $url
