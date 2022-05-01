@@ -12,7 +12,7 @@ include "../config.php";
         <title><?= $site_title ?></title>
         <description><?= $site_description ?></description>
         <link><?= $_SERVER['SERVER_NAME'].$root_path ?></link>
-        <copyright>&copy; <?= date("Y"); ?> <?= $site_author ?> All rights reserved</copyright>
+        <copyright>© <?= date("Y"); ?> <?= $site_author ?> All rights reserved</copyright>
         <language><?= strtolower($site_language) ?></language>
         
         <?php
