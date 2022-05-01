@@ -89,7 +89,7 @@ e.g. create a new entry, store it in a database, whatever. */
 header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
 print_r($_POST);
 
-echo($_POST['category']);
+print_r($_POST['category']);
 
 $file = fopen("log.json", 'w+');
 fwrite($file, json_encode($_POST));
