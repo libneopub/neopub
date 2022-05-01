@@ -56,12 +56,15 @@ if (!isset($values['scope'])) {
 if (substr($values['me'], -1) != '/') {
     $values['me'] .= '/';
 }
-if (substr($domain_url, -1) != '/') {
-    $domain_url .= '/';
+if (substr($site_domain, -1) != '/') {
+    $site_domain .= '/';
 }
 if (strtolower($values['me']) != strtolower($site_domain)) {
     header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
     echo 'Mismatching "me" value in authentication token.';
+    
+    echo "Expected: " . strtolower($values['me']);
+    echo "Got: " . strtolower($site_domain);
     exit;
 }
 if (!stristr($values['scope'], 'create')) {
