@@ -1,1 +1,35 @@
-[{"type":"note","author":{"name":"Robijntje"},"categories":null,"content":"Just setup my new microblog on micro.geheimesite.nl","date":"2022-05-01 19:16:51","site":"https:\/\/micro.geheimesite.nl","tags":null,"id":"626ec0833cb54","uri":"https:\/\/micro.geheimesite.nl\/post\/626ec0833cb54"}]
+[
+    {
+        "type": "like",
+        "like-of": "https:\/\/www.zylstra.org\/blog\/2022\/05\/21446\/",
+        "date": "2022-05-01 20:56:01",
+        "id": "626ed7c15ba14",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626ed7c15ba14"
+    },
+    {
+        "type": "note",
+        "author": {
+            "name": "Robijntje"
+        },
+        "categories": null,
+        "content": "Spent the entire evening debugging this stupid micropub endpoint and I've still not figured out what is going wrong >:(",
+        "date": "2022-05-01 20:51:18",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "tags": null,
+        "id": "626ed6a63c86f",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626ed6a63c86f"
+    },
+    {
+        "type": "note",
+        "author": {
+            "name": "Robijntje"
+        },
+        "categories": null,
+        "content": "Just setup my new microblog on micro.geheimesite.nl",
+        "date": "2022-05-01 19:16:51",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "tags": null,
+        "id": "626ec0833cb54",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626ec0833cb54"
+    }
+]

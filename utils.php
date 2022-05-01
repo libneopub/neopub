@@ -65,7 +65,6 @@ function newRepost($repostof)
         "uri" => $url
     );
 
-
     writePost($post);
 }
 
@@ -83,7 +82,6 @@ function newLike($likeof)
         "id" => $id,
         "uri" => $url
     );
-
 
     writePost($post);
 }
@@ -115,7 +113,7 @@ function writePost($post)
     $posts_json = file_get_contents("content/feed.json");
     $posts = json_decode($posts_json);
 
-    array_push($posts, $post);
+    array_unshift($posts, $post);
 
     $file = fopen("content/feed.json", 'w+');
     fwrite($file, json_encode($posts));
@@ -169,7 +167,7 @@ function showPost($post)
 
             <div>
                 <div class="p-content">
-                    <p class="p-name">🗩 Reply to <a href="<?= $post->in_reply_to ?>" class="u-in-reply-to"><?= $post->in_reply_to ?></a></p>
+                    <p class="p-name">🗩 Reply to <a href="<?= $post->{'in-reply-to'} ?>" class="u-in-reply-to"><?= $post->{'in-reply-to'} ?></a></p>
                     <p class="p-summary">
                         <?= $post->content ?>
                     </p>
@@ -188,7 +186,7 @@ function showPost($post)
 
             <div>
                 <p class="p-content p-name">
-                    🔥 Repost of <a href="<?= $post->repost_of ?>" class="u-repost-of h-cite"><?= $post->repost_of ?></a>
+                    🔥 Repost of <a href="<?= $post->{'repost-of'} ?>" class="u-repost-of h-cite"><?= $post->{'repost-of'} ?></a>
                 </p>
 
                 <time class="dt-published"><?= $post->date ?></time>
@@ -204,7 +202,7 @@ function showPost($post)
     
                 <div>
                     <p class="p-content p-name">
-                        ❤️ Like of <a href="<?= $post->like_of ?>" class="u-like-of h-cite"><?= $post->like_of ?></a>
+                        ❤️ Like of <a href="<?= $post->{'like-of'} ?>" class="u-like-of h-cite"><?= $post->{'like-of'} ?></a>
                     </p>
     
                     <time class="dt-published"><?= $post->date ?></time>
@@ -221,7 +219,7 @@ function showPost($post)
             <div>
                 <div class="p-content">
                     <p class="p-name">
-                        🔖 Bookmark of <a href="<?= $post->bookmark_of ?>" class="u-bookmark-of h-cite"><?= $post->name ?></a>
+                        🔖 Bookmark of <a href="<?= $post->{'bookmark-of'} ?>" class="u-bookmark-of h-cite"><?= $post->{'bookmark-of'} ?></a>
                     </p>
 
                     <p class="p-summary">
