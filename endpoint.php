@@ -87,7 +87,7 @@ if (!isset($_POST['content'])) {
 e.g. create a new entry, store it in a database, whatever. */
 
 header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-print_r($POST);
+print_r($_POST);
 exit;
 
 if(isset($_POST['in-reply-to'])) {
