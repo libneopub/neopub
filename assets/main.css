@@ -147,4 +147,14 @@ header {
 .h-entry p.p-name {
     font-size: 16px;
     color: rgb(84, 87, 94); 
+    margin-bottom: 3px;
+}
+
+.e-content {
+    flex-grow: 1;
+}
+
+.h-entry > div {
+    display: flex;
+    flex-direction: column;
 }

@@ -257,7 +257,7 @@ function debugEndpoint() {
     header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
     print_r($_POST);
 
-    $file = fopen("log.json", 'w+');
+    $file = fopen("log.json", 'a');
     fwrite($file, json_encode($_POST));
     fclose($file);
 
@@ -268,7 +268,10 @@ function sendWebmentions() {
     global $site_url;
 
     $client = new IndieWeb\MentionClient();
-    $client->sendMentions($site_url);
-}
+    $sent = $client->sendMentions($site_url);
 
+    $file = fopen("log.json", 'a');
+    fwrite($file, "Sent $sent mentions\n");
+    fclose($file);
+}
 ?>
