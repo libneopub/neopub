@@ -36,10 +36,15 @@ require "utils.php";
     <link rel="pingback" href="<?= $pingback ?>" />
 </head>
 <body>
-    <?php include "partials/header.php" ?>
-    <div class="warning">
-        You're viewing all posts tagged "<?= $tag ?>"". <a href="/">Return to timeline</a>
-    </div>
-    <?php listPostsWithTag($tag) ?>
+    <main>
+        <?php include "partials/header.php" ?>
+        <div class="warning">
+            You're viewing all posts tagged "<?= $tag ?>"". <a href="/">Return to timeline</a>
+        </div>
+        <?php listPostsWithTag($tag) ?>
+    </main>
+    <aside>
+        <?php include "partials/sidebar.php" ?>
+    </aside>
 </body>
 </html>

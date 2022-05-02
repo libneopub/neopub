@@ -18,8 +18,8 @@
                 <a href="/content/feed.json">json</a> ∙
                 <a href="/content/feed.php">rss</a> 
             </address>
-            <p class="p-note">
-
+            <p class="p-note" hidden>
+                <?= $site_description ?>
             </p>
         </div>
     </div>

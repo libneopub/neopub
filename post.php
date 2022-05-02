@@ -38,23 +38,17 @@ require "utils.php";
     <link rel="pingback" href="<?= $pingback ?>" />
 </head>
 <body>
-    <?php include "partials/header.php" ?>
-    <div class="warning">
-        You're viewing a single post. <a href="/">Return to timeline</a>
-    </div>
-    <?php showPost($post) ?>
-    <section>
-        <h2>Webmentions</h2>
+    <main>
+        <?php include "partials/header.php" ?>
+        <div class="warning">
+            You're viewing a single post. <a href="/">Return to timeline</a>
+        </div>
 
-        <div id="webmentions"></div>
-        
-        <form action="https://webmention.io/geheimesite.nl/webmention" method="post">
-            <p>This post accepts <a href="https://webmention.net">webmentions</a>. Let me know the URL of your <a href="https://indieweb.org/responses">response</a>:</p>
-
-            <input type="url" name="source">
-            <input type="hidden" name="target" value="<?= $post->uri ?>">
-            <input type="submit" class="ui submit button" value="Send Webmention">
-        </form>
-    </section>
+        <?php showPost($post) ?>
+        <?php include "partials/comment-section.php" ?>
+    </main>
+    <aside>
+        <?php include "partials/sidebar.php" ?>
+    </aside>
 </body>
 </html>

@@ -23,9 +23,14 @@ html {
 
 body {
     height: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 20px;
 }
+
+/* Header */
 
 header {
     background-color: white;
@@ -33,7 +38,7 @@ header {
     border: 1px solid rgb(171, 170, 170);
     border-top: none;
     border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px
+    border-bottom-right-radius: 6px;
 }
 
 .h-card > div {
@@ -45,6 +50,46 @@ header {
 
 .h-card h1 {
     margin-bottom: 2px;
+}
+
+/* Sidebar */
+
+.sidebar-section {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid rgb(171, 170, 170);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.sidebar-section:first-child {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 0;
+}
+
+.sidebar-section h3 {
+    margin-top: 0;
+}
+
+.sidebar-section p:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-section.about {
+    padding: 20px;
+}
+
+/* Menu */
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li a {
+    font-weight: 600;
+    font-size: 23px;
 }
 
 /* Link styles */
@@ -70,11 +115,12 @@ a:active {
     flex-direction: row-reverse;
     justify-content: flex-end;
     gap: 7px;
-    margin-top: 10px;
+    margin-top: 15px;
+    box-shadow: 10px 5px rgb(94, 152, 152), 11px 6px rgb(57, 107, 107);
 }
 
 .h-entry p, .comment p {
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 0;
 }
 
@@ -131,15 +177,15 @@ time, .sub * {
     list-style: none;
 }
 
-section {
+.comment-section {
     margin-top: 90px;
 }
 
-section h2, section form a, section form p {
+.comment-section h2, .comment-section form a, .comment-section form p {
     color: white;
 }
 
-section form a {
+.comment-section form a {
     font-weight: bold;
     text-decoration: underline dotted;
 }

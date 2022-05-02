@@ -30,7 +30,12 @@ require "utils.php";
     <link rel="pingback" href="<?= $pingback ?>" />
 </head>
 <body>
-    <?php include "partials/header.php" ?>
-    <?php listPosts() ?>
+    <main>
+        <?php include "partials/header.php" ?>
+        <?php listPosts() ?>
+    </main>
+    <aside>
+        <?php include "partials/sidebar.php" ?>
+    </aside>
 </body>
 </html>

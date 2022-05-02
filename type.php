@@ -39,10 +39,15 @@ $pluralLookup = ["reply" => "replies", "bookmark" => "bookmarks", "repost" => "r
     <link rel="pingback" href="<?= $pingback ?>" />
 </head>
 <body>
-    <?php include "partials/header.php" ?>
-    <div class="warning">
-        You're viewing all <?= $typePlural ?>. <a href="/">Return to timeline</a>
-    </div>
-    <?php listPostsOfType($type) ?>
+    <main>
+        <?php include "partials/header.php" ?>
+        <div class="warning">
+            You're viewing all <?= $typePlural ?>. <a href="/">Return to timeline</a>
+        </div>
+        <?php listPostsOfType($type) ?>
+    </main>
+    <aside>
+        <?php include "partials/sidebar.php" ?>
+    </aside>
 </body>
 </html>
