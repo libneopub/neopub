@@ -31,9 +31,57 @@ include "../config.php";
                     ?>
                         <item>
                             <description>
-                                <?php 
-                                    echo preg_replace('/\<(img|br)([^>]*)(?<!\/)>/', '<\1\2/>', $post->content);
+                                <?php
+                                if ($post->type === "note") {
+
                                 ?>
+                                    <p>
+                                        <?= $post->content ?>
+                                    </p>
+                                <?php
+
+                                } else if ($post->type == "reply") {
+
+                                ?>
+                                    <p>
+                                        🗩 replied to 
+                                        <a href="<?= $post->{'in-reply-to'} ?>"><?= $post->{'in-reply-to'} ?></a>
+                                    </p>
+                                    <p>
+                                        <?= $post->content ?>
+                                    </p>
+                                <?php
+
+                                } else if ($post->type == "repost") {
+
+                                ?>
+                                    <p>
+                                        🔥 reposted 
+                                        <a href="<?= $post->{'repost-of'} ?>"><?= $post->{'repost-of'} ?></a>
+                                    </p>
+                                <?php
+
+                                } else if ($post->type == "like") {
+
+                                    ?>
+                                        <p>
+                                            ❤️ liked 
+                                            <a href="<?= $post->{'like-of'} ?>"><?= $post->{'like-of'} ?></a>
+                                        </p>
+                                    <?php
+                                
+                                } else if ($post->type == "bookmark") {
+
+                                ?>
+                                    <p>
+                                        🔖 <a href="<?= $post->{'bookmark-of'} ?>" class="u-bookmark-of h-cite"><?= $post->{'bookmark-of'} ?></a>
+                                    </p>
+                                    <p>
+                                        <?= $post->content ?>
+                                    </p>
+                                <?php 
+                            
+                                } ?>
                             </description>
                             <link><?= $post->uri ?></link>
                             <guid><?= $post->uri ?></guid>
