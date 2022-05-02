@@ -8,6 +8,8 @@ function showPost($post)
 
     ?>
         <article class="h-entry">
+            <?php include "partials/author.php" ?>
+
             <div>
                 <div class="e-content p-summary">
                     <?= $post->content ?>
@@ -26,8 +28,6 @@ function showPost($post)
                     </p>
                 </div>
             </div>
-
-            <?php include "partials/author.php" ?>
         </article>
     <?php
 
@@ -35,6 +35,8 @@ function showPost($post)
 
     ?>
         <article class="h-entry">
+            <?php include "partials/author.php" ?>
+
             <div>
                 <div>
                     <p class="title">
@@ -50,8 +52,6 @@ function showPost($post)
                     <time class="dt-published"><?= $post->date ?></time>
                 </a>
             </div>
-
-            <?php include "partials/author.php" ?>
         </article>
     <?php
 
@@ -59,6 +59,9 @@ function showPost($post)
 
     ?>
         <article class="h-entry">
+            <?php include "partials/author.php" ?>
+
+
             <div>
                 <p class="e-content title">
                     <i class="fa-solid fa-arrows-spin"></i> reposted 
@@ -69,15 +72,15 @@ function showPost($post)
                     <time class="dt-published"><?= $post->date ?></time>
                 </a>
             </div>
-
-            <?php include "partials/author.php" ?>
         </article>
     <?php
 
     } else if ($post->type == "like") {
 
         ?>
-            <article class="h-entry">   
+            <article class="h-entry">  
+                <?php include "partials/author.php" ?> 
+
                 <div>
                     <p class="e-content title">
                         <i class="fa-solid fa-heart"></i> liked 
@@ -88,8 +91,6 @@ function showPost($post)
                         <time class="dt-published"><?= $post->date ?></time>
                     </a>
                 </div>
-
-                <?php include "partials/author.php" ?>
             </article>
         <?php
     
@@ -97,6 +98,8 @@ function showPost($post)
 
     ?>
         <article class="h-entry">
+            <?php include "partials/author.php" ?>
+            
             <div>
                 <div>
                     <p class="title">
@@ -122,8 +125,6 @@ function showPost($post)
                     </p>
                 </div>
             </div>
-
-            <?php include "partials/author.php" ?>
         </article>
     <?php
 

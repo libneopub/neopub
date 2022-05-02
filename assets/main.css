@@ -120,8 +120,7 @@ a:active {
     background-color: white;
     border-radius: 6px;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
+    flex-direction: row;
     gap: 7px;
     margin-top: 15px;
     box-shadow: 10px 5px rgb(94, 152, 152), 11px 6px rgb(57, 107, 107);
