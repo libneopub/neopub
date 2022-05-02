@@ -35,9 +35,9 @@ include "../config.php";
                                 if ($post->type === "note") {
 
                                 ?>
-                                    <p>
+                                    <div>
                                         <?= $post->content ?>
-                                    </p>
+                                    </div>
                                 <?php
 
                                 } else if ($post->type == "reply") {
@@ -47,9 +47,9 @@ include "../config.php";
                                         🗩 replied to 
                                         <a href="<?= $post->{'in-reply-to'} ?>"><?= $post->{'in-reply-to'} ?></a>
                                     </p>
-                                    <p>
+                                    <div>
                                         <?= $post->content ?>
-                                    </p>
+                                    </div>
                                 <?php
 
                                 } else if ($post->type == "repost") {
@@ -76,9 +76,9 @@ include "../config.php";
                                     <p>
                                         🔖 <a href="<?= $post->{'bookmark-of'} ?>" class="u-bookmark-of h-cite"><?= $post->{'bookmark-of'} ?></a>
                                     </p>
-                                    <p>
+                                    <div>
                                         <?= $post->content ?>
-                                    </p>
+                                    </div>
                                 <?php 
                             
                                 } ?>
