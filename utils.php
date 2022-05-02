@@ -322,6 +322,54 @@ function showPost($post)
     }
 }
 
+function getRawContent($post) {
+    if ($post->type === "note") {
+
+        $content = $post->content;
+
+    } else if ($post->type == "reply") {
+
+        $content = "
+            <p>
+                💬 replied to 
+                <a href='".$post->{'in-reply-to'}."'>".$post->{'in-reply-to'}."</a>:
+            </p>
+            $post->content
+        ";
+
+    } else if ($post->type == "repost") {
+
+        $content = "
+            <p>
+                🔄 reposted
+                <a href='".$post->{'repost-of'}."'>".$post->{'repost-of'}."</a>
+            </p>
+        ";
+
+    } else if ($post->type == "like") {
+
+        $content = "
+            <p>
+                ❤️ liked 
+                <a href='".$post->{'like-of'}."'>".$post->{'like-of'}."</a>
+            </p>
+        ";
+    
+    } else if ($post->type == "bookmark") {
+
+        $content = "
+            <p>
+                🔖
+                <a href='".$post->{'bookmark-of'}."'>$post->name</a>.
+            </p>
+            $post->content
+        ";
+
+    }
+
+    return $content;
+}
+
 // Method to debug the micropub endpoint
 // It crashes the endpoint and logs the 
 // request to log.json

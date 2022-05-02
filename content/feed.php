@@ -1,16 +1,17 @@
 <?php
 
 header("Content-Type: text/xml; charset='UTF-8'");
-print("<?xml version='1.0' encoding='UTF-8' ?>");
+print("<?xml version='1.0' encoding='utf-8' standalone='yes' ?>");
 
 include "../config.php";
+include "../utils.php";
 
 ?>
 
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0"  xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title><?= $site_title ?></title>
-        <description><?= $site_description ?></description>
+        <description><?= strip_tags($site_description) ?></description>
         <link><?= $site_url ?></link>
         <language><?= strtolower($site_language) ?></language>
         <atom:link href="<?= $site_url . "/content/feed" ?>" rel="self" type="application/rss+xml" />
@@ -28,61 +29,18 @@ include "../config.php";
                     $date = date_create_from_format('Y-m-d H:i:s', $post->date);
                     $date = date_format($date, DateTime::RFC822);
 
+                    $content = getRawContent($post)
+
                     ?>
                         <item>
                             <description>
-                                <?php
-                                if ($post->type === "note") {
-
-                                ?>
-                                    <div>
-                                        <?= $post->content ?>
-                                    </div>
-                                <?php
-
-                                } else if ($post->type == "reply") {
-
-                                ?>
-                                    <p>
-                                        💬 replied to 
-                                        <a href="<?= $post->{'in-reply-to'} ?>"><?= $post->{'in-reply-to'} ?></a>
-                                    </p>
-                                    <div>
-                                        <?= $post->content ?>
-                                    </div>
-                                <?php
-
-                                } else if ($post->type == "repost") {
-
-                                ?>
-                                    <p>
-                                        🔄 reposted 
-                                        <a href="<?= $post->{'repost-of'} ?>"><?= $post->{'repost-of'} ?></a>
-                                    </p>
-                                <?php
-
-                                } else if ($post->type == "like") {
-
-                                    ?>
-                                        <p>
-                                            ❤️ liked 
-                                            <a href="<?= $post->{'like-of'} ?>"><?= $post->{'like-of'} ?></a>
-                                        </p>
-                                    <?php
-                                
-                                } else if ($post->type == "bookmark") {
-
-                                ?>
-                                    <p>
-                                        🔖 <a href="<?= $post->{'bookmark-of'} ?>" class="u-bookmark-of h-cite"><?= $post->name ?></a>
-                                    </p>
-                                    <div>
-                                        <?= $post->content ?>
-                                    </div>
-                                <?php 
-                            
-                                } ?>
+                                <?= strip_tags($content) ?>
                             </description>
+                            <content:encoded>
+                                <![CDATA[
+                                    <?= $content ?>
+                                ]]>
+                            </content:encoded>
                             <link><?= $post->uri ?></link>
                             <guid><?= $post->uri ?></guid>
                             <comments><?= $post->uri."#comments" ?></comments>
