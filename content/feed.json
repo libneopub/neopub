@@ -4,11 +4,24 @@
         "author": {
             "name": "Robijntje"
         },
+        "categories": null,
+        "content": "<p>Just added <em>markdown<\/em> support to my micropub endpoint. Noice.<\/p>\n",
+        "date": "2022-05-02 11:00:12",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "tags": null,
+        "id": "626f9d9c0e367",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626f9d9c0e367"
+    },
+    {
+        "type": "note",
+        "author": {
+            "name": "Robijntje"
+        },
         "categories": [
             "neopub",
             "open-source"
         ],
-        "content": "<p>I\u2019m planning on open-sourcing the blogging software I built for my microblog when it is a bit more polished, but I can\u2019t come up with a good name. Split between neopub and neolog.</p>",
+        "content": "<p>I\u2019m planning on open-sourcing the blogging software I built for my microblog when it is a bit more polished, but I can\u2019t come up with a good name. Split between neopub and neolog.<\/p>",
         "date": "2022-05-02 10:32:57",
         "site": "https:\/\/micro.geheimesite.nl",
         "tags": [
@@ -24,7 +37,7 @@
         "author": {
             "name": "Robijntje"
         },
-        "content": "<p>I have moved my microblog again, from blog.geheimesite.nl to micro.geheimesite.nl. I rewrote the entire thing in PHP and added micropub and webmention support.</p>",
+        "content": "<p>I have moved my microblog again, from blog.geheimesite.nl to micro.geheimesite.nl. I rewrote the entire thing in PHP and added micropub and webmention support.<\/p>",
         "date": "2022-05-02 10:22:33",
         "site": "https:\/\/micro.geheimesite.nl",
         "id": "626f94c919e85",
@@ -36,7 +49,7 @@
             "name": "Robijntje"
         },
         "categories": null,
-        "content": "<p>Yeet! It finally works :D</p>",
+        "content": "<p>Yeet! It finally works :D<\/p>",
         "date": "2022-05-01 21:19:07",
         "site": "https:\/\/micro.geheimesite.nl",
         "tags": null,
@@ -56,7 +69,7 @@
             "name": "Robijntje"
         },
         "categories": null,
-        "content": "<p>Spent the entire evening debugging this stupid micropub endpoint and I've still not figured out what is going wrong >:(</p>",
+        "content": "<p>Spent the entire evening debugging this stupid micropub endpoint and I've still not figured out what is going wrong >:(<\/p>",
         "date": "2022-05-01 20:51:18",
         "site": "https:\/\/micro.geheimesite.nl",
         "tags": null,
@@ -69,7 +82,7 @@
             "name": "Robijntje"
         },
         "categories": null,
-        "content": "<p>Just setup my new microblog on micro.geheimesite.nl</p>",
+        "content": "<p>Just setup my new microblog on micro.geheimesite.nl<\/p>",
         "date": "2022-05-01 19:16:51",
         "site": "https:\/\/micro.geheimesite.nl",
         "tags": null,

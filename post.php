@@ -12,6 +12,8 @@ require "utils.php";
     <link rel="stylesheet" type="text/css" href="/assets/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script src="/assets/webmention.min.js" async></script>
+
     <?php
     if (isset($_GET['id'])) {
         $post = getPost($_GET['id']);
@@ -41,5 +43,18 @@ require "utils.php";
         You're viewing a single post. <a href="/">Return to timeline</a>
     </div>
     <?php showPost($post) ?>
+    <section>
+        <h2>Webmentions</h2>
+
+        <div id="webmentions"></div>
+        
+        <form action="https://webmention.io/geheimesite.nl/webmention" method="post">
+            <p>This post accepts <a href="https://webmention.net">webmentions</a>. Let me know the URL of your <a href="https://indieweb.org/responses">response</a>:</p>
+
+            <input type="url" name="source">
+            <input type="hidden" name="target" value="<?= $post->uri ?>">
+            <input type="submit" class="ui submit button" value="Send Webmention">
+        </form>
+    </section>
 </body>
 </html>

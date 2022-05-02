@@ -44,7 +44,7 @@ include "../config.php";
 
                                 ?>
                                     <p>
-                                        🗩 replied to 
+                                        💬 replied to 
                                         <a href="<?= $post->{'in-reply-to'} ?>"><?= $post->{'in-reply-to'} ?></a>
                                     </p>
                                     <div>
@@ -56,7 +56,7 @@ include "../config.php";
 
                                 ?>
                                     <p>
-                                        🔥 reposted 
+                                        🔄 reposted 
                                         <a href="<?= $post->{'repost-of'} ?>"><?= $post->{'repost-of'} ?></a>
                                     </p>
                                 <?php
