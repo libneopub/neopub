@@ -120,9 +120,17 @@ a:active {
     margin-top: 0;
 }
 
-time {
+time, .sub * {
     font-size: 12px;
     color: rgb(84, 87, 94);
+    display: inline;
+    margin: 0;
+}
+
+.sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .h-card > div {

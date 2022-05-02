@@ -4,11 +4,17 @@
         "author": {
             "name": "Robijntje"
         },
-        "categories": null,
+        "categories": [
+            "neopub",
+            "open-source"
+        ],
         "content": "<p>I\u2019m planning on open-sourcing the blogging software I built for my microblog when it is a bit more polished, but I can\u2019t come up with a good name. Split between neopub and neolog.</p>",
         "date": "2022-05-02 10:32:57",
         "site": "https:\/\/micro.geheimesite.nl",
-        "tags": null,
+        "tags": [
+            "neopub",
+            "open-source"
+        ],
         "id": "626f9739482f4",
         "uri": "https:\/\/micro.geheimesite.nl\/post\/626f9739482f4"
     },

@@ -157,13 +157,39 @@ function getPost($id)
 }
 
 // Method to loop trough all posts
-// and render them
+// and render them.
 function listPosts() {
     $posts_json = file_get_contents("content/feed.json");
     $posts = json_decode($posts_json);
 
     foreach ($posts as $post) {
         showPost($post);
+    }
+}
+
+// Method to loop trough all posts
+// of a post-type and render them.
+function listPostsOfType($type = "note") {
+    $posts_json = file_get_contents("content/feed.json");
+    $posts = json_decode($posts_json);
+
+    foreach ($posts as $post) {
+        if($post->type === $type) {
+            showPost($post);
+        }
+    }
+}
+
+// Method to loop trough all posts
+// of a post-type and render them.
+function listPostsWithTag($tag) {
+    $posts_json = file_get_contents("content/feed.json");
+    $posts = json_decode($posts_json);
+
+    foreach ($posts as $post) {
+        if(in_array($tag, $post->tags)) {
+            showPost($post);
+        }
     }
 }
 
@@ -179,9 +205,18 @@ function showPost($post)
                     <?= $post->content ?>
                 </div>
 
-                <a class="no-underline u-url" href="<?= $post->uri ?>">
-                    <time class="dt-published"><?= $post->date ?></time>
-                </a>
+                <div class="sub">
+                    <a class="no-underline u-url" href="<?= $post->uri ?>">
+                        <time class="dt-published"><?= $post->date ?></time>
+                    </a>
+                    <p>
+                        <?php
+                            foreach ($post->tags as $tag) {
+                                ?><a class="p-category" href="/tag/<?= $tag ?>">#<?= $tag ?></a> <?php
+                            } 
+                        ?>
+                    </p>
+                </div>
             </div>
 
             <?php include "partials/author.php" ?>
@@ -266,9 +301,18 @@ function showPost($post)
                     </div>
                 </div>
 
-                <a class="no-underline u-url" href="<?= $post->uri ?>">
-                    <time class="dt-published"><?= $post->date ?></time>
-                </a>
+                <div class="sub">
+                    <a class="no-underline u-url" href="<?= $post->uri ?>">
+                        <time class="dt-published"><?= $post->date ?></time>
+                    </a>
+                    <p>
+                        <?php
+                            foreach ($post->tags as $tag) {
+                                ?><a class="p-category" href="/tag/<?= $tag ?>">#<?= $tag ?></a> <?php
+                            } 
+                        ?>
+                    </p>
+                </div>
             </div>
 
             <?php include "partials/author.php" ?>

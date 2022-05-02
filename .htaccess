@@ -14,6 +14,8 @@ AddCharset UTF-8 .php
 # Pretty URLs
 Options +FollowSymLinks
 RewriteRule ^post/(.*)$ ./post.php?id=$1
+RewriteRule ^type/(.*)$ ./type.php?type=$1
+RewriteRule ^tag/(.*)$ ./tag.php?tag=$1
 
 # Remove .php from filenames
 RewriteBase /
