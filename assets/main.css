@@ -1,48 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-/** Scrollbar hack **/
+/** General **/
 
 html {
     margin-left: calc(100vw - 100%);
     margin-right: 0;
-}
-
-/** Smooth scrolling **/
-
-html {
     scroll-behavior: smooth;
-}
-
-/** Borderbox hack **/
-
-html {
     box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
-/* Hide scrollbars */
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-.no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
-/* Render sharp pixelart */
-.pixelart {
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-    image-rendering: pixelated;
-}
-
-html {
     background-color: rgb(255, 102, 102);
 	background: linear-gradient(-45deg, #F59E0B, #DB2777, #0995ad, #38BDF8);
 	background-size: 400% 400%;
@@ -51,102 +15,25 @@ html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "Ubuntu", "Noto Sans", "Droid Sans", Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
 }
 
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
     height: 100%;
     max-width: 900px;
     margin: 0 auto;
 }
 
-a {
-    color: rgb(255, 102, 102);
-    text-decoration: none;
-}
-
-a:hover:not(.no-underline), a:focus:not(.no-underline) {
-    text-decoration: underline;
-}
-
-a:active {
-    color: black;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	33% {
-		background-position: 100% 50%;
-	}
-	66% {
-		background-position: 50% 100%;
-	}
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-/* Make posts pretty */
-.h-entry, .comment {
-    padding: 7px;
-    border: 1px solid rgb(171, 170, 170);
+header {
     background-color: white;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    gap: 7px;
-    margin-top: 10px;
-}
-
-.comment {
-    list-style: none;
-}
-
-.comments {
-    padding: 0;
-    margin: 0;
-}
-
-.warning {
-    padding: 7px;
-    border: 1px solid rgb(184, 116, 0);
-    background-color: rgb(255, 210, 132);
-    color: rgb(73, 51, 12);
-    border-radius: 6px;
-    margin-top: 10px;
-}
-
-.u-photo {
-    border-radius: 6px;
-    width: 60px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-}
-
-.comment-photo {
-    border-radius: 6px;
-    width: 30px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-}
-
-.h-entry p, .comment p {
-    font-size: 20px;
-    margin-top: 0;
-}
-
-time, .sub * {
-    font-size: 12px;
-    color: rgb(84, 87, 94);
-    display: inline;
-    margin: 0;
-}
-
-.sub {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    padding: 10px;
+    border: 1px solid rgb(171, 170, 170);
+    border-top: none;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px
 }
 
 .h-card > div {
@@ -160,28 +47,88 @@ time, .sub * {
     margin-bottom: 2px;
 }
 
-header {
-    background-color: white;
-    padding: 10px;
-    border: 1px solid rgb(171, 170, 170);
-    border-top: none;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px
+/* Link styles */
+
+a {
+    color: rgb(255, 102, 102);
+    text-decoration: none;
+}
+a:hover:not(.no-underline), a:focus:not(.no-underline) {
+    text-decoration: underline;
+}
+a:active {
+    color: black;
 }
 
-.h-entry p.title, .comment p.title {
-    font-size: 16px;
-    color: rgb(84, 87, 94); 
-    margin-bottom: 3px;
+/* Posts & comments */
+.h-entry, .comment {
+    padding: 7px;
+    border: 1px solid rgb(171, 170, 170);
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.h-entry p, .comment p {
+    font-size: 20px;
+    margin-top: 0;
 }
 
 .e-content {
     flex-grow: 1;
 }
 
+.u-photo, .comment-photo {
+    border-radius: 6px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+.u-photo {
+    width: 60px;
+}
+.comment-photo {
+    width: 30px;
+}
+
+/* Small text underneath post */
+.sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+time, .sub * {
+    font-size: 12px;
+    color: rgb(84, 87, 94);
+    display: inline;
+    margin: 0;
+}
+
+/* Supertext (liked, repost, reply etc.) */
+.h-entry p.title, .comment p.title {
+    font-size: 16px;
+    color: rgb(84, 87, 94); 
+    margin-bottom: 3px;
+}
+
+/* Spacing between .sub and content */
 .h-entry > div, .comment > div {
     display: flex;
     flex-direction: column;
+}
+
+/* Comment section */
+
+.comments {
+    padding: 0;
+    margin: 0;
+}
+
+.comment {
+    list-style: none;
 }
 
 section {
@@ -196,6 +143,8 @@ section form a {
     font-weight: bold;
     text-decoration: underline dotted;
 }
+
+/* Forms */
 
 input, button {
     padding: 6px;
@@ -215,4 +164,37 @@ input, button {
 
 button, input[type="submit"], input[type="button"] {
     cursor: pointer;
+}
+
+/* Misc & utilities */
+
+.warning {
+    padding: 7px;
+    border: 1px solid rgb(184, 116, 0);
+    background-color: rgb(255, 210, 132);
+    color: rgb(73, 51, 12);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* Render sharp pixelart */
+.pixelart {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	33% {
+		background-position: 100% 50%;
+	}
+	66% {
+		background-position: 50% 100%;
+	}
+    100% {
+        background-position: 0% 50%;
+    }
 }
