@@ -102,6 +102,7 @@ else if(isset($_POST['bookmark-of'])) {
 else {
     $post = newNote($_POST['content'], $_POST['category']);
     $url = publishPost($post);
+    sendWebmentions($url);
 }
 
 header($_SERVER['SERVER_PROTOCOL'] . ' 201 Created');
