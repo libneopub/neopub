@@ -2,9 +2,10 @@
 // Utils for getting and creating posts
 
 require "vendor/autoload.php";
-
 require "config.php";
 
+// Method to generate a new 
+// note. Returns the note.
 function newNote($content, $categories)
 {
     global $site_url;
@@ -26,9 +27,11 @@ function newNote($content, $categories)
         "uri" => $url
     );
 
-    writePost($post);
+    return $post;
 }
 
+// Method to generate a new 
+// reply. Returns the reply.
 function newReply($content, $replyto)
 {
     global $site_url;
@@ -49,9 +52,11 @@ function newReply($content, $replyto)
         "uri" => $url
     );
 
-    writePost($post);
+    return $post;
 }
 
+// Method to generate a new 
+// repost. Returns the post.
 function newRepost($repostof)
 {
     global $site_url;
@@ -67,9 +72,11 @@ function newRepost($repostof)
         "uri" => $url
     );
 
-    writePost($post);
+    return $post;
 }
 
+// Method to generate a new 
+// like. Returns the post.
 function newLike($likeof)
 {
     global $site_url;
@@ -85,9 +92,11 @@ function newLike($likeof)
         "uri" => $url
     );
 
-    writePost($post);
+    return $post;
 }
 
+// Method to generate a new 
+// bookmark. Returns the post.
 function newBookmark($content, $bookmarkof, $title, $categories)
 {
     global $site_url;
@@ -107,21 +116,27 @@ function newBookmark($content, $bookmarkof, $title, $categories)
         "uri" => $url
     );
 
-    writePost($post);
+    return $post;
 }
 
-function writePost($post)
+// Method to write a post
+// to the feed.json file (or database)
+// Returns the URI of the published post.
+function publishPost($post)
 {
     $posts_json = file_get_contents("content/feed.json");
     $posts = json_decode($posts_json);
 
     array_unshift($posts, $post);
 
-    $file = fopen("content/feed.json", 'w+');
+    $file = fopen('content/feed.json', 'w+');
     fwrite($file, json_encode($posts));
     fclose($file);
+
+    return $post->url;
 }
 
+// Method to get post by its ID
 function getPost($id)
 {
     $posts_json = file_get_contents("content/feed.json");
@@ -134,6 +149,8 @@ function getPost($id)
     }
 }
 
+// Method to loop trough all posts
+// and render them
 function listPosts() {
     $posts_json = file_get_contents("content/feed.json");
     $posts = json_decode($posts_json);
@@ -143,6 +160,7 @@ function listPosts() {
     }
 }
 
+// Method to render a single post
 function showPost($post)
 {
     if ($post->type === "note") {
@@ -253,25 +271,26 @@ function showPost($post)
     }
 }
 
+// Method to debug the micropub endpoint
+// It crashes the endpoint and logs the 
+// request to log.json
 function debugEndpoint() {
     header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
     print_r($_POST);
 
-    $file = fopen("log.json", 'a');
+    $file = fopen('log.json', 'a');
     fwrite($file, json_encode($_POST));
     fclose($file);
 
     exit;
 }
 
-function sendWebmentions() {
-    global $site_url;
-
+function sendWebmentions($url) {
     $client = new IndieWeb\MentionClient();
-    $sent = $client->sendMentions($site_url);
+    $sent = $client->sendMentions($url);
 
-    $file = fopen("log.json", 'a');
-    fwrite($file, "Sent $sent mentions\n");
+    $file = fopen('log.json', 'a');
+    fwrite($file, '{"message": "Sent '.$sent.' mentions\n"}');
     fclose($file);
 }
 ?>
