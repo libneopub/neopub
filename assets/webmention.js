@@ -296,7 +296,7 @@ Edited by Robijntje to better fit his blog.
                 if (c.author && c.author.name) {
                     source = entities(c.author.name);
                 }
-                const link = `<a class="source" rel="nofollow ugc" href="${c[mentionSource]}">$${reaction} {source}</a>`;
+                const link = `<a class="source" rel="nofollow ugc" href="${c[mentionSource]}">${reaction} ${source}</a>`;
   
                 let linkclass = "name";
                 let linktext = `(${t("mention")})`;
