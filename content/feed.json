@@ -1,5 +1,31 @@
 [
     {
+        "type": "note",
+        "author": {
+            "name": "Robijntje"
+        },
+        "categories": null,
+        "content": "<strong>HTML<\/strong> test <i>#1<\/i>.<br>Will this work? Lets find out!",
+        "date": "2022-05-01 21:26:36",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "tags": null,
+        "id": "626edeecd4cd9",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626edeecd4cd9"
+    },
+    {
+        "type": "note",
+        "author": {
+            "name": "Robijntje"
+        },
+        "categories": null,
+        "content": "Yeet! It finally works :D",
+        "date": "2022-05-01 21:19:07",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "tags": null,
+        "id": "626edd2ba2883",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626edd2ba2883"
+    },
+    {
         "type": "like",
         "like-of": "https:\/\/www.zylstra.org\/blog\/2022\/05\/21446\/",
         "date": "2022-05-01 20:56:01",

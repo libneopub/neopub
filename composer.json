@@ -1,4 +1,16 @@
 {
+    "name": "robinboers/microblog",
+    "description": " My self-hosted microblog with micropub and webmention support written in PHP. ",
+    "type": "project",
+    "homepage": "https://micro.geheimesite.nl",
+    "authors": [
+        {
+            "name": "Robin Boers",
+            "email": "robin@geheimesite.nl",
+            "homepage": "https://geheimesite.nl",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "indieweb/mention-client": "1.2.1"
     }
