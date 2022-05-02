@@ -293,7 +293,7 @@ function showPost($post)
                 <div>
                     <p class="title">
                         <i class="fa-solid fa-bookmark"></i> 
-                        <a class="u-bookmark-of h-cite" href="<?= $post->{'bookmark-of'} ?>"><?= $post->{'bookmark-of'} ?></a>
+                        <a class="u-bookmark-of h-cite" href="<?= $post->{'bookmark-of'} ?>"><?= $post->name ?></a>
                     </p>
 
                     <div class="p-summary e-content">

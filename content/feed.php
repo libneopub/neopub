@@ -74,7 +74,7 @@ include "../config.php";
 
                                 ?>
                                     <p>
-                                        🔖 <a href="<?= $post->{'bookmark-of'} ?>" class="u-bookmark-of h-cite"><?= $post->{'bookmark-of'} ?></a>
+                                        🔖 <a href="<?= $post->{'bookmark-of'} ?>" class="u-bookmark-of h-cite"><?= $post->name ?></a>
                                     </p>
                                     <div>
                                         <?= $post->content ?>
