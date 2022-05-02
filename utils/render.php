@@ -11,7 +11,7 @@ function showPost($post)
             <?php include "partials/author.php" ?>
 
             <div>
-                <div class="e-content p-summary">
+                <div class="e-content p-summary p-name">
                     <?= $post->content ?>
                 </div>
 
@@ -39,7 +39,7 @@ function showPost($post)
 
             <div>
                 <div>
-                    <p class="title">
+                    <p class="title p-name">
                         <i class="fa-solid fa-reply"></i> replied to 
                         <a class="u-in-reply-to" href="<?= $post->{'in-reply-to'} ?>"><?= $post->{'in-reply-to'} ?></a>
                     </p>
@@ -63,7 +63,7 @@ function showPost($post)
 
 
             <div>
-                <p class="e-content title">
+                <p class="e-content title p-name">
                     <i class="fa-solid fa-arrows-spin"></i> reposted 
                     <a class="u-repost-of h-cite" href="<?= $post->{'repost-of'} ?>"><?= $post->{'repost-of'} ?></a>
                 </p>
@@ -82,7 +82,7 @@ function showPost($post)
                 <?php include "partials/author.php" ?> 
 
                 <div>
-                    <p class="e-content title">
+                    <p class="e-content title p-name">
                         <i class="fa-solid fa-heart"></i> liked 
                         <a class="u-like-of h-cite" href="<?= $post->{'like-of'} ?>"><?= $post->{'like-of'} ?></a>
                     </p>
@@ -99,10 +99,10 @@ function showPost($post)
     ?>
         <article class="h-entry">
             <?php include "partials/author.php" ?>
-            
+
             <div>
                 <div>
-                    <p class="title">
+                    <p class="title p-name">
                         <i class="fa-solid fa-bookmark"></i> 
                         <a class="u-bookmark-of h-cite" href="<?= $post->{'bookmark-of'} ?>"><?= $post->name ?></a>
                     </p>
