@@ -5,8 +5,8 @@
             <li><a href="/type/reply">replies</a></li>
             <li><a href="/type/note">notes</a></li>
             <li><a href="/type/like">likes</a></li>
-            <li><a href="/type/reposts">reposts</a></li>
-            <li><a href="/type/bookmarks">bookmarks</a></li>
+            <li><a href="/type/repost">reposts</a></li>
+            <li><a href="/type/bookmark">bookmarks</a></li>
         </ul>
     </nav>
 </section>
