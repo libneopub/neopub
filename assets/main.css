@@ -126,6 +126,10 @@ a:active {
     box-shadow: 10px 5px rgb(94, 152, 152), 11px 6px rgb(57, 107, 107);
 }
 
+.h-entry > div:last-child {
+    flex-grow: 1;
+}
+
 .h-entry p, .comment p {
     font-size: 18px;
     margin-top: 0;
