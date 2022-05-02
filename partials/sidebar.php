@@ -1,3 +1,9 @@
+<?php
+// Reusable sidebar component
+
+require "config.php";
+?>
+
 <section class="sidebar-section">
     <nav>
         <ul>

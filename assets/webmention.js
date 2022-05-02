@@ -62,7 +62,7 @@ A more detailed example:
     data-comments-are-reactions="true"
     />
 
-Edited by Robijntje to better fit his blog.
+Edited by Robijntje to better fit neopub.
 */
 
 (function () {

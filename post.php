@@ -1,4 +1,6 @@
 <?php
+// Template for rendering a single post
+
 require "config.php";
 require "utils.php";
 ?>

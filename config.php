@@ -1,4 +1,6 @@
 <?php
+// Main site config 
+
 $site_title = 'Robijntje\'s microblog';
 $site_url = 'https://micro.geheimesite.nl';
 $site_language = 'en-US';

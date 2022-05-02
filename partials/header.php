@@ -1,5 +1,7 @@
 <?php
-    require "config.php";
+// Reusable header component with site author h-card
+
+require "config.php";
 ?>
 
 <header class="h-card" rel="author" id="author">

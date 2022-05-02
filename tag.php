@@ -1,4 +1,6 @@
 <?php
+// Template for rendering the tag pages
+
 require "config.php";
 require "utils.php";
 ?>

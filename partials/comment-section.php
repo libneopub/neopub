@@ -1,3 +1,9 @@
+<?php
+// Reusable comment-section component
+// Uses webmention.js (/assets/webmention{.min}.js) to 
+// render webmentions as comments and or reactions.
+?>
+
 <section class="comment-section">
     <h2>Webmentions</h2>
 

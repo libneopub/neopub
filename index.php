@@ -1,4 +1,6 @@
 <?php
+// Template for the homepage
+
 require "config.php";
 require "utils.php";
 ?>

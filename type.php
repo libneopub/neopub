@@ -1,8 +1,16 @@
 <?php
+// Template for rendering the type/category pages
+
 require "config.php";
 require "utils.php";
 
-$pluralLookup = ["reply" => "replies", "bookmark" => "bookmarks", "repost" => "reposts", "like" => "likes", "note" => "notes"];
+$pluralLookup = [
+    "note" => "notes",
+    "reply" => "replies", 
+    "like" => "likes", 
+    "bookmark" => "bookmarks", 
+    "repost" => "reposts"
+];
 ?>
 <!DOCTYPE html>
 <html lang="<?= $site_language ?>">

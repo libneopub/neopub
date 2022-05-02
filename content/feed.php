@@ -1,10 +1,13 @@
 <?php
+// Auto-generated RSS feed
 
 header("Content-Type: text/xml; charset='UTF-8'");
 print("<?xml version='1.0' encoding='utf-8' standalone='yes' ?>");
 
-include "../config.php";
-include "../utils.php";
+chdir(__DIR__ . "/..");
+
+include "config.php";
+include "utils.php";
 
 ?>
 
@@ -17,7 +20,7 @@ include "../utils.php";
         <atom:link href="<?= $site_url . "/content/feed" ?>" rel="self" type="application/rss+xml" />
         
         <?php
-            $file = "feed.json";
+            $file = "content/feed.json";
 
             if(file_exists($file) && filesize($file) > 0){
                 $handle = fopen($file, "a+");
@@ -43,7 +46,7 @@ include "../utils.php";
                             </content:encoded>
                             <link><?= $post->uri ?></link>
                             <guid><?= $post->uri ?></guid>
-                            <comments><?= $post->uri."#comments" ?></comments>
+                            <comments><?= $post->uri."#webmentions" ?></comments>
                             <pubDate><?= $date ?></pubDate>
                         </item>
                     <?php

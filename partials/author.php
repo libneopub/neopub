@@ -1,5 +1,7 @@
 <?php
-    require "config.php";
+// Reusable profile picture component with h-card
+
+require "config.php";
 ?>
 
 <div class="p-author h-card">
