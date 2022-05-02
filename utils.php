@@ -133,7 +133,7 @@ function publishPost($post)
     fwrite($file, json_encode($posts));
     fclose($file);
 
-    return $post->url;
+    return $post["uri"];
 }
 
 // Method to get post by its ID
@@ -167,8 +167,6 @@ function showPost($post)
 
     ?>
         <article class="h-entry">
-            <?php include "partials/author.php" ?>
-
             <div>
                 <p class="e-content p-summary">
                     <?= $post->content ?>
@@ -178,6 +176,8 @@ function showPost($post)
                     <time class="dt-published"><?= $post->date ?></time>
                 </a>
             </div>
+
+            <?php include "partials/author.php" ?>
         </article>
     <?php
 
@@ -185,15 +185,13 @@ function showPost($post)
 
     ?>
         <article class="h-entry">
-            <?php include "partials/author.php" ?>
-
             <div>
-                <div class="e-content">
+                <div>
                     <p class="p-name">
                         <i class="fa-solid fa-reply"></i> replied to 
-                        <a href="<?= $post->{'in-reply-to'} ?>" class="u-in-reply-to"><?= $post->{'in-reply-to'} ?></a>
+                        <a class="u-in-reply-to" href="<?= $post->{'in-reply-to'} ?>"><?= $post->{'in-reply-to'} ?></a>
                     </p>
-                    <p class="p-summary">
+                    <p class="p-summary e-content">
                         <?= $post->content ?>
                     </p>
                 </div>           
@@ -202,6 +200,8 @@ function showPost($post)
                     <time class="dt-published"><?= $post->date ?></time>
                 </a>
             </div>
+
+            <?php include "partials/author.php" ?>
         </article>
     <?php
 
@@ -209,37 +209,37 @@ function showPost($post)
 
     ?>
         <article class="h-entry">
-            <?php include "partials/author.php" ?>
-
             <div>
                 <p class="e-content p-name">
                     <i class="fa-solid fa-arrows-spin"></i> reposted 
-                    <a href="<?= $post->{'repost-of'} ?>" class="u-repost-of h-cite"><?= $post->{'repost-of'} ?></a>
+                    <a class="u-repost-of h-cite" href="<?= $post->{'repost-of'} ?>"><?= $post->{'repost-of'} ?></a>
                 </p>
 
                 <a class="no-underline u-url" href="<?= $post->uri ?>">
                     <time class="dt-published"><?= $post->date ?></time>
                 </a>
             </div>
+
+            <?php include "partials/author.php" ?>
         </article>
     <?php
 
     } else if ($post->type == "like") {
 
         ?>
-            <article class="h-entry">
-                <?php include "partials/author.php" ?>
-    
+            <article class="h-entry">   
                 <div>
                     <p class="e-content p-name">
                         <i class="fa-solid fa-heart"></i> liked 
-                        <a href="<?= $post->{'like-of'} ?>" class="u-like-of h-cite"><?= $post->{'like-of'} ?></a>
+                        <a class="u-like-of h-cite" href="<?= $post->{'like-of'} ?>"><?= $post->{'like-of'} ?></a>
                     </p>
     
                     <a class="no-underline u-url" href="<?= $post->uri ?>">
                         <time class="dt-published"><?= $post->date ?></time>
                     </a>
                 </div>
+
+                <?php include "partials/author.php" ?>
             </article>
         <?php
     
@@ -247,16 +247,14 @@ function showPost($post)
 
     ?>
         <article class="h-entry">
-            <?php include "partials/author.php" ?>
-
             <div>
-                <div class="e-content">
+                <div>
                     <p class="p-name">
                         <i class="fa-solid fa-bookmark"></i> 
-                        <a href="<?= $post->{'bookmark-of'} ?>" class="u-bookmark-of h-cite"><?= $post->{'bookmark-of'} ?></a>
+                        <a class="u-bookmark-of h-cite" href="<?= $post->{'bookmark-of'} ?>"><?= $post->{'bookmark-of'} ?></a>
                     </p>
 
-                    <p class="p-summary">
+                    <p class="p-summary e-content">
                         <?= $post->content ?>
                     </p>
                 </div>
@@ -265,6 +263,8 @@ function showPost($post)
                     <time class="dt-published"><?= $post->date ?></time>
                 </a>
             </div>
+
+            <?php include "partials/author.php" ?>
         </article>
     <?php
 
@@ -278,7 +278,7 @@ function debugEndpoint() {
     header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
     print_r($_POST);
 
-    $file = fopen('log.json', 'a');
+    $file = fopen('log.json', 'w+');
     fwrite($file, json_encode($_POST));
     fclose($file);
 
@@ -289,8 +289,8 @@ function sendWebmentions($url) {
     $client = new IndieWeb\MentionClient();
     $sent = $client->sendMentions($url);
 
-    $file = fopen('log.json', 'a');
-    fwrite($file, '{"message": "Sent '.$sent.' mentions\n"}');
+    $file = fopen('log.json', 'w+');
+    fwrite($file, '{"message": "Sent '.$sent.' mentions.", "url": "'.$url.'"}');
     fclose($file);
 }
 ?>

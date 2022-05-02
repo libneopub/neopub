@@ -93,7 +93,8 @@ a:active {
     background-color: white;
     border-radius: 6px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
     gap: 7px;
     margin-top: 10px;
 }
