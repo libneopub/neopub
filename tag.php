@@ -41,7 +41,7 @@ require "utils.php";
     <main>
         <?php include "partials/header.php" ?>
         <div class="warning">
-            You're viewing all posts tagged "<?= $tag ?>"". <a href="/">Return to timeline</a>
+            You're viewing all posts tagged "<?= $tag ?>". <a href="/">Return to timeline</a>
         </div>
         <?php listPostsWithTag($tag) ?>
     </main>
