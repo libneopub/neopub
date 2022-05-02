@@ -2,7 +2,7 @@
 require "config.php";
 require "utils.php";
 
-$pluralLookup = ["reply" => "replies", "bookmark" => "bookmarks", "repost" => "reposts", "like" => "likes"];
+$pluralLookup = ["reply" => "replies", "bookmark" => "bookmarks", "repost" => "reposts", "like" => "likes", "note" => "notes"];
 ?>
 <!DOCTYPE html>
 <html lang="<?= $site_language ?>">

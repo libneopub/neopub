@@ -40,9 +40,9 @@ require "utils.php";
 <body>
     <main>
         <?php include "partials/header.php" ?>
-        <div class="warning">
+        <!-- <div class="warning">
             You're viewing a single post. <a href="/">Return to timeline</a>
-        </div>
+        </div> -->
 
         <?php showPost($post) ?>
         <?php include "partials/comment-section.php" ?>
