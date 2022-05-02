@@ -152,11 +152,13 @@ function showPost($post)
             <?php include "partials/author.php" ?>
 
             <div>
-                <p class="p-content p-name p-summary">
+                <p class="p-content p-summary">
                     <?= $post->content ?>
                 </p>
 
-                <time class="dt-published"><?= $post->date ?></time>
+                <a class="no-underline" href="<?= $post->uri ?>">
+                    <time class="dt-published"><?= $post->date ?></time>
+                </a>
             </div>
         </article>
     <?php
@@ -169,13 +171,18 @@ function showPost($post)
 
             <div>
                 <div class="p-content">
-                    <p class="p-name">🗩 Reply to <a href="<?= $post->{'in-reply-to'} ?>" class="u-in-reply-to"><?= $post->{'in-reply-to'} ?></a></p>
+                    <p class="p-name">
+                        <i class="fa-solid fa-reply"></i> replied to 
+                        <a href="<?= $post->{'in-reply-to'} ?>" class="u-in-reply-to"><?= $post->{'in-reply-to'} ?></a>
+                    </p>
                     <p class="p-summary">
                         <?= $post->content ?>
                     </p>
                 </div>           
 
-                <time class="dt-published"><?= $post->date ?></time>
+                <a class="no-underline" href="<?= $post->uri ?>">
+                    <time class="dt-published"><?= $post->date ?></time>
+                </a>
             </div>
         </article>
     <?php
@@ -188,10 +195,13 @@ function showPost($post)
 
             <div>
                 <p class="p-content p-name">
-                    🔥 Repost of <a href="<?= $post->{'repost-of'} ?>" class="u-repost-of h-cite"><?= $post->{'repost-of'} ?></a>
+                    <i class="fa-solid fa-arrows-spin"></i> reposted 
+                    <a href="<?= $post->{'repost-of'} ?>" class="u-repost-of h-cite"><?= $post->{'repost-of'} ?></a>
                 </p>
 
-                <time class="dt-published"><?= $post->date ?></time>
+                <a class="no-underline" href="<?= $post->uri ?>">
+                    <time class="dt-published"><?= $post->date ?></time>
+                </a>
             </div>
         </article>
     <?php
@@ -204,10 +214,13 @@ function showPost($post)
     
                 <div>
                     <p class="p-content p-name">
-                        ❤️ Like of <a href="<?= $post->{'like-of'} ?>" class="u-like-of h-cite"><?= $post->{'like-of'} ?></a>
+                        <i class="fa-solid fa-heart"></i> liked 
+                        <a href="<?= $post->{'like-of'} ?>" class="u-like-of h-cite"><?= $post->{'like-of'} ?></a>
                     </p>
     
-                    <time class="dt-published"><?= $post->date ?></time>
+                    <a class="no-underline" href="<?= $post->uri ?>">
+                        <time class="dt-published"><?= $post->date ?></time>
+                    </a>
                 </div>
             </article>
         <?php
@@ -221,7 +234,8 @@ function showPost($post)
             <div>
                 <div class="p-content">
                     <p class="p-name">
-                        🔖 Bookmark of <a href="<?= $post->{'bookmark-of'} ?>" class="u-bookmark-of h-cite"><?= $post->{'bookmark-of'} ?></a>
+                        <i class="fa-solid fa-bookmark"></i> 
+                        <a href="<?= $post->{'bookmark-of'} ?>" class="u-bookmark-of h-cite"><?= $post->{'bookmark-of'} ?></a>
                     </p>
 
                     <p class="p-summary">
@@ -229,7 +243,9 @@ function showPost($post)
                     </p>
                 </div>
 
-                <time class="dt-published"><?= $post->date ?></time>
+                <a class="no-underline" href="<?= $post->uri ?>">
+                    <time class="dt-published"><?= $post->date ?></time>
+                </a>
             </div>
         </article>
     <?php

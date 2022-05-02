@@ -62,7 +62,7 @@ a {
     text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover:not(.no-underline), a:focus:not(.no-underline) {
     text-decoration: underline;
 }
 
@@ -142,4 +142,9 @@ header {
     border-top: none;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px
+}
+
+.h-entry p.p-name {
+    font-size: 16px;
+    color: rgb(84, 87, 94); 
 }
