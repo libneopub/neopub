@@ -2,6 +2,7 @@
 // Utils for getting and creating posts
 
 require "vendor/autoload.php";
+use Michelf\Markdown;
 require "config.php";
 
 // Method to generate a new 
@@ -14,6 +15,8 @@ function newNote($content, $categories)
     $id = uniqid();
     $url = $site_url . "/post/" . $id;
     $author = array("name" => $site_author);
+
+    $content = Markdown::defaultTransform($content);
 
     $post = array(
         "type" => "note",
@@ -40,6 +43,8 @@ function newReply($content, $replyto)
     $id = uniqid();
     $url = $site_url . "/post/" . $id;
     $author = array("name" => $site_author);
+
+    $content = Markdown::defaultTransform($content);
 
     $post = array(
         "type" => "reply",
@@ -103,6 +108,8 @@ function newBookmark($content, $bookmarkof, $title, $categories)
 
     $id = uniqid();
     $url = $site_url . "/post/" . $id;
+
+    $content = Markdown::defaultTransform($content);
 
     $post = array(
         "type" => "bookmark",
@@ -168,9 +175,9 @@ function showPost($post)
     ?>
         <article class="h-entry">
             <div>
-                <p class="e-content p-summary">
+                <div class="e-content p-summary">
                     <?= $post->content ?>
-                </p>
+                </div>
 
                 <a class="no-underline u-url" href="<?= $post->uri ?>">
                     <time class="dt-published"><?= $post->date ?></time>
@@ -191,9 +198,9 @@ function showPost($post)
                         <i class="fa-solid fa-reply"></i> replied to 
                         <a class="u-in-reply-to" href="<?= $post->{'in-reply-to'} ?>"><?= $post->{'in-reply-to'} ?></a>
                     </p>
-                    <p class="p-summary e-content">
+                    <div class="p-summary e-content">
                         <?= $post->content ?>
-                    </p>
+                    </div>
                 </div>           
 
                 <a class="no-underline u-url" href="<?= $post->uri ?>">
@@ -254,9 +261,9 @@ function showPost($post)
                         <a class="u-bookmark-of h-cite" href="<?= $post->{'bookmark-of'} ?>"><?= $post->{'bookmark-of'} ?></a>
                     </p>
 
-                    <p class="p-summary e-content">
+                    <div class="p-summary e-content">
                         <?= $post->content ?>
-                    </p>
+                    </div>
                 </div>
 
                 <a class="no-underline u-url" href="<?= $post->uri ?>">

@@ -1,1 +1,73 @@
-[{"type":"reply","in-reply-to":"https:\/\/blog.geheimesite.nl\/2022\/03\/migreren-naar-hugo.html","author":{"name":"Robijntje"},"content":"I have moved my microblog again, from blog.geheimesite.nl to micro.geheimesite.nl. I rewrote the entire thing in PHP and added micropub and webmention support.","date":"2022-05-02 10:22:33","site":"https:\/\/micro.geheimesite.nl","id":"626f94c919e85","uri":"https:\/\/micro.geheimesite.nl\/post\/626f94c919e85"},{"type":"note","author":{"name":"Robijntje"},"categories":null,"content":"Yeet! It finally works :D","date":"2022-05-01 21:19:07","site":"https:\/\/micro.geheimesite.nl","tags":null,"id":"626edd2ba2883","uri":"https:\/\/micro.geheimesite.nl\/post\/626edd2ba2883"},{"type":"like","like-of":"https:\/\/www.zylstra.org\/blog\/2022\/05\/21446\/","date":"2022-05-01 20:56:01","id":"626ed7c15ba14","uri":"https:\/\/micro.geheimesite.nl\/post\/626ed7c15ba14"},{"type":"note","author":{"name":"Robijntje"},"categories":null,"content":"Spent the entire evening debugging this stupid micropub endpoint and I've still not figured out what is going wrong >:(","date":"2022-05-01 20:51:18","site":"https:\/\/micro.geheimesite.nl","tags":null,"id":"626ed6a63c86f","uri":"https:\/\/micro.geheimesite.nl\/post\/626ed6a63c86f"},{"type":"note","author":{"name":"Robijntje"},"categories":null,"content":"Just setup my new microblog on micro.geheimesite.nl","date":"2022-05-01 19:16:51","site":"https:\/\/micro.geheimesite.nl","tags":null,"id":"626ec0833cb54","uri":"https:\/\/micro.geheimesite.nl\/post\/626ec0833cb54"}]
+[
+    {
+        "type": "note",
+        "author": {
+            "name": "Robijntje"
+        },
+        "categories": null,
+        "content": "<p>I\u2019m planning on open-sourcing the blogging software I built for my microblog when it is a bit more polished, but I can\u2019t come up with a good name. Split between neopub and neolog.</p>",
+        "date": "2022-05-02 10:32:57",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "tags": null,
+        "id": "626f9739482f4",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626f9739482f4"
+    },
+    {
+        "type": "reply",
+        "in-reply-to": "https:\/\/blog.geheimesite.nl\/2022\/03\/migreren-naar-hugo.html",
+        "author": {
+            "name": "Robijntje"
+        },
+        "content": "<p>I have moved my microblog again, from blog.geheimesite.nl to micro.geheimesite.nl. I rewrote the entire thing in PHP and added micropub and webmention support.</p>",
+        "date": "2022-05-02 10:22:33",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "id": "626f94c919e85",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626f94c919e85"
+    },
+    {
+        "type": "note",
+        "author": {
+            "name": "Robijntje"
+        },
+        "categories": null,
+        "content": "<p>Yeet! It finally works :D</p>",
+        "date": "2022-05-01 21:19:07",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "tags": null,
+        "id": "626edd2ba2883",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626edd2ba2883"
+    },
+    {
+        "type": "like",
+        "like-of": "https:\/\/www.zylstra.org\/blog\/2022\/05\/21446\/",
+        "date": "2022-05-01 20:56:01",
+        "id": "626ed7c15ba14",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626ed7c15ba14"
+    },
+    {
+        "type": "note",
+        "author": {
+            "name": "Robijntje"
+        },
+        "categories": null,
+        "content": "<p>Spent the entire evening debugging this stupid micropub endpoint and I've still not figured out what is going wrong >:(</p>",
+        "date": "2022-05-01 20:51:18",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "tags": null,
+        "id": "626ed6a63c86f",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626ed6a63c86f"
+    },
+    {
+        "type": "note",
+        "author": {
+            "name": "Robijntje"
+        },
+        "categories": null,
+        "content": "<p>Just setup my new microblog on micro.geheimesite.nl</p>",
+        "date": "2022-05-01 19:16:51",
+        "site": "https:\/\/micro.geheimesite.nl",
+        "tags": null,
+        "id": "626ec0833cb54",
+        "uri": "https:\/\/micro.geheimesite.nl\/post\/626ec0833cb54"
+    }
+]

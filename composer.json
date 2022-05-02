@@ -12,6 +12,7 @@
         }
     ],
     "require": {
-        "indieweb/mention-client": "1.2.1"
+        "indieweb/mention-client": "1.2.1",
+        "michelf/php-markdown": "^1.9"
     }
 }
