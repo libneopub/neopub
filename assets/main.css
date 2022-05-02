@@ -87,7 +87,7 @@ a:active {
 
 
 /* Make posts pretty */
-.h-entry {
+.h-entry, .comment {
     padding: 7px;
     border: 1px solid rgb(171, 170, 170);
     background-color: white;
@@ -97,6 +97,15 @@ a:active {
     justify-content: flex-end;
     gap: 7px;
     margin-top: 10px;
+}
+
+.comment {
+    list-style: none;
+}
+
+.comments {
+    padding: 0;
+    margin: 0;
 }
 
 .warning {
@@ -115,7 +124,14 @@ a:active {
     object-fit: cover;
 }
 
-.h-entry p {
+.comment-photo {
+    border-radius: 6px;
+    width: 30px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.h-entry p, .comment p {
     font-size: 20px;
     margin-top: 0;
 }
@@ -153,7 +169,7 @@ header {
     border-bottom-right-radius: 6px
 }
 
-.h-entry p.p-name {
+.h-entry p.title, .comment p.title {
     font-size: 16px;
     color: rgb(84, 87, 94); 
     margin-bottom: 3px;
@@ -163,16 +179,20 @@ header {
     flex-grow: 1;
 }
 
-.h-entry > div {
+.h-entry > div, .comment > div {
     display: flex;
     flex-direction: column;
 }
 
-section > *, section form a {
+section {
+    margin-top: 90px;
+}
+
+section h2, section form a, section form p {
     color: white;
 }
 
-section a {
+section form a {
     font-weight: bold;
     text-decoration: underline dotted;
 }
