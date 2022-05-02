@@ -15,8 +15,8 @@
                 <?php if($twitter_user !== "") { ?>
                     <a rel="me" href="https://twitter.com/<?= $twitter_user ?>">twitter</a> ∙
                 <?php } ?>
-                <a href="content/feed.json">json</a> ∙
-                <a href="content/feed.php">rss</a> 
+                <a href="/content/feed.json">json</a> ∙
+                <a href="/content/feed.php">rss</a> 
             </address>
             <p class="p-note">
 
