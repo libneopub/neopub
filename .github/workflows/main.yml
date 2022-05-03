@@ -21,4 +21,4 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
-          content/feed.json
+          content/**.json
