@@ -143,6 +143,8 @@ function publishPost($post)
         createFeedForCurrentYear();
         writePost($currentYear, $post);
     }
+
+    return $post["uri"];
 }
 
 function writePost($year, $post) 
@@ -155,8 +157,6 @@ function writePost($year, $post)
     $file = fopen("content/$year.json", 'w+');
     fwrite($file, json_encode($posts));
     fclose($file);
-
-    return $post["uri"];
 }
 
 function createFeedForCurrentYear() 
