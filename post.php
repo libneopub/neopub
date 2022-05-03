@@ -20,10 +20,9 @@ require "utils.php";
     if (isset($_GET['year']) && isset($_GET['id'])) {
         $post = getPost($_GET['year'], $_GET['id']);
         $notFound = !isset($post);
-        $showForYear = false;
 
     } else {
-        header("Location: index.php");
+        header("Location: /");
     }
     ?>
 

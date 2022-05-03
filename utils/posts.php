@@ -10,9 +10,10 @@ function newNote($content, $categories)
 {
     global $site_url;
     global $site_author;
+    global $currentYear;
 
     $id = uniqid();
-    $url = $site_url . "/post/" . $id;
+    $url =  "$site_url/post/$currentYear/$id";
     $author = array("name" => $site_author);
 
     $content = Markdown::defaultTransform($content);
@@ -38,9 +39,10 @@ function newReply($content, $replyto)
 {
     global $site_url;
     global $site_author;
+    global $currentYear;
 
     $id = uniqid();
-    $url = $site_url . "/post/" . $id;
+    $url =  "$site_url/post/$currentYear/$id";
     $author = array("name" => $site_author);
 
     $content = Markdown::defaultTransform($content);
@@ -64,9 +66,10 @@ function newReply($content, $replyto)
 function newRepost($repostof)
 {
     global $site_url;
+    global $currentYear;
 
     $id = uniqid();
-    $url = $site_url . "/post/" . $id;
+    $url =  "$site_url/post/$currentYear/$id";
 
     $post = array(
         "type" => "repost",
@@ -84,9 +87,10 @@ function newRepost($repostof)
 function newLike($likeof)
 {
     global $site_url;
+    global $currentYear;
 
     $id = uniqid();
-    $url = $site_url . "/post/" . $id;
+    $url =  "$site_url/post/$currentYear/$id";
 
     $post = array(
         "type" => "like",
@@ -104,9 +108,10 @@ function newLike($likeof)
 function newBookmark($content, $bookmarkof, $title, $categories)
 {
     global $site_url;
+    global $currentYear;
 
     $id = uniqid();
-    $url = $site_url . "/post/" . $id;
+    $url =  "$site_url/post/$currentYear/$id";
 
     $content = Markdown::defaultTransform($content);
 

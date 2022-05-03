@@ -27,7 +27,7 @@ $pluralLookup = [
         $type = $_GET['type'];
         $typePlural = $pluralLookup[$type];
     } else {
-        header("Location: index.php");
+        header("Location: /");
     }
     ?>
 

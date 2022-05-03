@@ -21,11 +21,11 @@ require "utils.php";
         $year = $_GET['year'];
 
         if(!isValidYear($year)) {
-            header("Location: index.php");
+            header("Location: /");
         } 
 
     } else {
-        header("Location: index.php");
+        header("Location: /");
     }
     ?>
 

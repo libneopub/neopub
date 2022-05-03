@@ -18,7 +18,7 @@ require "utils.php";
     if (isset($_GET['tag'])) {
         $tag = $_GET['tag'];
     } else {
-        header("Location: index.php");
+        header("Location: /");
     }
     ?>
 
