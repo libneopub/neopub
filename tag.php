@@ -43,7 +43,7 @@ require "utils.php";
         <div class="warning">
             You're viewing all posts tagged "<?= $tag ?>". <a href="/">Return to timeline</a>
         </div>
-        <?php listPostsWithTag($tag) ?>
+        <?php listPostsWithTag($currentYear, $tag) ?>
     </main>
     <aside>
         <?php include "partials/sidebar.php" ?>

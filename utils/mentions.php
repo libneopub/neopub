@@ -1,7 +1,8 @@
 <?php
 // Utils for sending webmentions
 
-function sendWebmentions($url) {
+function sendWebmentions($url) 
+{
     $client = new IndieWeb\MentionClient();
     $sent = $client->sendMentions($url);
 

@@ -225,13 +225,30 @@ button, input[type="submit"], input[type="button"] {
 
 /* Misc & utilities */
 
-.warning {
+.warning, .error, .msg {
     padding: 7px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.warning {
     border: 1px solid rgb(184, 116, 0);
     background-color: rgb(255, 210, 132);
     color: rgb(73, 51, 12);
-    border-radius: 6px;
-    margin-top: 10px;
+}
+
+.error {
+    border: 1px solid rgb(184, 18, 0);
+    background-color: rgb(255, 148, 132);
+    color: rgb(73, 12, 12);
+}
+
+.msg {
+    color: white;
+}
+
+.error a {
+    color: rgb(230, 52, 52);
 }
 
 /* Render sharp pixelart */

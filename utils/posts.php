@@ -126,26 +126,47 @@ function newBookmark($content, $bookmarkof, $title, $categories)
 }
 
 // Method to write a post
-// to the feed.json file (or database)
+// to the <year>.json file (or database)
 // Returns the URI of the published post.
 function publishPost($post)
 {
-    $posts_json = file_get_contents("content/feed.json");
+    global $currentYear;
+
+    if (file_exists("content/$currentYear.json")) {
+        writePost($currentYear, $post);
+    } else {
+        createFeedForCurrentYear();
+        writePost($currentYear, $post);
+    }
+}
+
+function writePost($year, $post) 
+{
+    $posts_json = file_get_contents("content/$year.json");
     $posts = json_decode($posts_json);
 
     array_unshift($posts, $post);
 
-    $file = fopen('content/feed.json', 'w+');
+    $file = fopen("content/$year.json", 'w+');
     fwrite($file, json_encode($posts));
     fclose($file);
 
     return $post["uri"];
 }
 
-// Method to get post by its ID
-function getPost($id)
+function createFeedForCurrentYear() 
 {
-    $posts_json = file_get_contents("content/feed.json");
+    global $currentYear;
+
+    $file = fopen("content/$currentYear.json", 'w');
+    fwrite($file, "[]");
+    fclose($file);
+}
+
+// Method to get post by its ID
+function getPost($year, $id)
+{
+    $posts_json = file_get_contents("content/$year.json");
     $posts = json_decode($posts_json);
 
     foreach ($posts as $post) {
@@ -157,37 +178,65 @@ function getPost($id)
 
 // Method to loop trough all posts
 // and render them.
-function listPosts() {
-    $posts_json = file_get_contents("content/feed.json");
-    $posts = json_decode($posts_json);
+function listPosts($year) 
+{
+    if(file_exists("content/$year.json")) {
+        $posts_json = file_get_contents("content/$year.json");
+        $posts = json_decode($posts_json);
+    } else {
+        $posts = [];
+    }
+
+    $nothingHere = true;
 
     foreach ($posts as $post) {
+        $nothingHere = false;
         showPost($post);
+    }
+
+    if($nothingHere) {
+        showMessage("Nothing here. (anymore?)");
     }
 }
 
 // Method to loop trough all posts
 // of a post-type and render them.
-function listPostsOfType($type = "note") {
-    $posts_json = file_get_contents("content/feed.json");
+function listPostsOfType($year, $type = "note") 
+{
+    $posts_json = file_get_contents("content/$year.json");
     $posts = json_decode($posts_json);
+
+    $nothingHere = true;
 
     foreach ($posts as $post) {
         if($post->type === $type) {
+            $nothingHere = false;
             showPost($post);
         }
+    }
+
+    if($nothingHere) {
+        showMessage("Nothing here. (anymore?)");
     }
 }
 
 // Method to loop trough all posts
 // of a post-type and render them.
-function listPostsWithTag($tag) {
-    $posts_json = file_get_contents("content/feed.json");
+function listPostsWithTag($year, $tag) 
+{
+    $posts_json = file_get_contents("content/$year.json");
     $posts = json_decode($posts_json);
+
+    $nothingHere = true;
 
     foreach ($posts as $post) {
         if(in_array($tag, $post->tags)) {
+            $nothingHere = false;
             showPost($post);
         }
+    }
+
+    if($nothingHere) {
+        showMessage("Nothing here. (anymore?)");
     }
 }

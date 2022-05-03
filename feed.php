@@ -1,10 +1,8 @@
 <?php
 // Auto-generated RSS feed
 
-header("Content-Type: text/xml; charset='UTF-8'");
-print("<?xml version='1.0' encoding='utf-8' standalone='yes' ?>");
-
-chdir(__DIR__ . "/..");
+header('Content-Type: text/xml; charset="UTF-8"');
+print('<?xml version="1.0" encoding="utf-8" standalone="yes" ?>');
 
 include "config.php";
 include "utils.php";
@@ -17,12 +15,13 @@ include "utils.php";
         <description><?= strip_tags($site_description) ?></description>
         <link><?= $site_url ?></link>
         <language><?= strtolower($site_language) ?></language>
-        <atom:link href="<?= $site_url . "/content/feed" ?>" rel="self" type="application/rss+xml" />
+        <atom:link href="<?= "$site_url/feed" ?>" rel="self" type="application/rss+xml" />
         
         <?php
-            $file = "content/feed.json";
+            $currentYear = date('Y');
+            $file = "content/$currentYear.json";
 
-            if(file_exists($file) && filesize($file) > 0){
+            if(file_exists($file) && filesize($file) > 0) {
                 $handle = fopen($file, "a+");
                 $posts_json = fread($handle, filesize($file));
                 $posts = json_decode($posts_json);
@@ -46,7 +45,7 @@ include "utils.php";
                             </content:encoded>
                             <link><?= $post->uri ?></link>
                             <guid><?= $post->uri ?></guid>
-                            <comments><?= $post->uri."#webmentions" ?></comments>
+                            <comments><?= "$post->uri#webmentions" ?></comments>
                             <pubDate><?= $date ?></pubDate>
                         </item>
                     <?php

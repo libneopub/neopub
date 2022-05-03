@@ -52,7 +52,7 @@ $pluralLookup = [
         <div class="warning">
             You're viewing all <?= $typePlural ?>. <a href="/">Return to timeline</a>
         </div>
-        <?php listPostsOfType($type) ?>
+        <?php listPostsOfType($currentYear, $type) ?>
     </main>
     <aside>
         <?php include "partials/sidebar.php" ?>

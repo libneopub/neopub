@@ -17,25 +17,19 @@ require "utils.php";
     <script src="/assets/webmention.min.js" async></script>
 
     <?php
-    if (isset($_GET['year']) && isset($_GET['id'])) {
-        $post = getPost($_GET['year'], $_GET['id']);
-        $notFound = !isset($post);
-        $showForYear = false;
+    if (isset($_GET['year'])) {
+        $year = $_GET['year'];
+
+        if(!isValidYear($year)) {
+            header("Location: index.php");
+        } 
 
     } else {
         header("Location: index.php");
     }
     ?>
 
-    <title>
-        <?php
-        if(!$notFound) {
-            echo "$post->id by @".$post->author->name." — $site_title";
-        } else {
-            echo "Post not found — $site_title";
-        }
-        ?>
-    </title>
+    <title><?= "Posts from $year — $site_title" ?></title>
 
     <!-- Micro{sub, pub} -->
     <link rel="microsub" href="<?= $microsub ?>">
@@ -52,16 +46,9 @@ require "utils.php";
 </head>
 <body>
     <main>
-        <?php 
-        include "partials/header.php";
-        
-        if(!$notFound) {
-            showPost($post);
-            include "partials/comment-section.php";
-        } else {
-            showError("This post doesn't exist (anymore)");
-        }
-        ?>
+        <?php include "partials/header.php" ?>
+        <?php showWarning("You're viewing posts from $year.") ?>
+        <?php listPosts($year) ?>
     </main>
     <aside>
         <?php include "partials/sidebar.php" ?>

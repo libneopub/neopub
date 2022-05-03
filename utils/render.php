@@ -134,7 +134,8 @@ function showPost($post)
 // Method to render raw content
 // without microformats2.
 // Used in the RSS feed.
-function getRawContent($post) {
+function getRawContent($post) 
+{
     if ($post->type === "note") {
 
         $content = $post->content;
@@ -180,4 +181,28 @@ function getRawContent($post) {
     }
 
     return $content;
+}
+
+function showWarning($msg) {
+    ?>
+        <div class="warning">
+            <?= $msg ?> <a href="/">Return to timeline</a>
+        </div>
+    <?php
+}
+
+function showError($msg) {
+    ?>
+        <div class="error">
+            <?= $msg ?> <a href="/">Return to timeline</a>
+        </div>
+    <?php
+}
+
+function showMessage($msg) {
+    ?>
+        <div class="msg">
+            <?= $msg ?>
+        </div>
+    <?php
 }
