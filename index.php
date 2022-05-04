@@ -18,5 +18,8 @@ require "utils.php";
     <aside>
         <?php include "partials/sidebar.php" ?>
     </aside>
+    <footer>
+        <?php include "partials/footer.php" ?>
+    </footer>
 </body>
 </html>

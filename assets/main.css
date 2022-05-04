@@ -192,11 +192,11 @@ time, .sub * {
     margin-top: 90px;
 }
 
-.comment-section h2, .comment-section form a, .comment-section form p {
+.comment-section h2, .comment-section form a, .comment-section form p, footer * {
     color: white;
 }
 
-.comment-section form a {
+.comment-section form a, footer a {
     font-weight: bold;
     text-decoration: underline dotted;
 }
@@ -249,6 +249,17 @@ button, input[type="submit"], input[type="button"] {
 
 .error a {
     color: rgb(230, 52, 52);
+}
+
+.get-your-own {
+    font-size: 22px;
+    text-underline-offset: 7px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.get-your-own:hover {
+    font-weight: 800;
 }
 
 /* Render sharp pixelart */
