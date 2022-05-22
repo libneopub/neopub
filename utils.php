@@ -5,6 +5,7 @@ require "config.php";
 require "utils/posts.php";
 require "utils/render.php";
 require "utils/mentions.php";
+require "utils/uploader.php";
 
 $currentYear = date("Y");
 

@@ -99,6 +99,13 @@ else if(isset($_POST['bookmark-of'])) {
     $url = publishPost($post);
     sendWebmentions($url);
 }
+else if(isset($_FILES['photo'])) {
+    $file_path = $_FILES['photo']['tmp_name'];
+    $file_url = uploadFileToGitHub($file_path, uniqid('IMG_'));
+    $post = newPhoto($file_url, $_POST['content'], $_POST['category']);
+    $url = publishPost($post);
+    sendWebmentions($url);
+}
 else {
     $post = newNote($_POST['content'], $_POST['category']);
     $url = publishPost($post);

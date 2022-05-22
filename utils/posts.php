@@ -34,6 +34,38 @@ function newNote($content, $categories)
 }
 
 // Method to generate a new 
+// photo post. Returns the post.
+function newPhoto($file_url, $content, $categories)
+{
+    global $site_url;
+    global $site_author;
+    global $currentYear;
+
+    $id = uniqid();
+    $url =  "$site_url/post/$currentYear/$id";
+    $author = array("name" => $site_author);
+
+    $photo_markdown = "\n![Photo]($file_url)";
+    $content = $content . $photo_markdown;
+
+    $content = Markdown::defaultTransform($content);
+
+    $post = array(
+        "type" => "note",
+        "author" => $author,
+        "categories" => $categories,
+        "content" => $content,
+        "date" => date("Y-m-d H:i:s"),
+        "site" => $site_url,
+        "tags" => $categories,
+        "id" => $id,
+        "uri" => $url
+    );
+
+    return $post;
+}
+
+// Method to generate a new 
 // reply. Returns the reply.
 function newReply($content, $replyto)
 {
