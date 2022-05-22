@@ -45,10 +45,12 @@ function newPhoto($file_url, $content, $categories)
     $url =  "$site_url/post/$currentYear/$id";
     $author = array("name" => $site_author);
 
-    $photo_markdown = "\n![Photo]($file_url)";
-    $content = $content . $photo_markdown;
+    array_push($categories, "photo");
 
     $content = Markdown::defaultTransform($content);
+    $photo = "<br /><br /><img src='$file_url' class='u-photo' />";
+
+    $content = $content . $photo;
 
     $post = array(
         "type" => "note",
