@@ -35,7 +35,7 @@ function newNote($content, $categories)
 
 // Method to generate a new 
 // photo post. Returns the post.
-function newPhoto($file_url, $content, $categories)
+function newPhoto($file_url, $content, $categories = array())
 {
     global $site_url;
     global $site_author;
@@ -48,7 +48,7 @@ function newPhoto($file_url, $content, $categories)
     array_push($categories, "photo");
 
     $content = Markdown::defaultTransform($content);
-    $photo = "<br /><br /><img src='$file_url' class='u-photo' />";
+    $photo = "<img src='$file_url' class='u-photo' />";
 
     $content = $content . $photo;
 

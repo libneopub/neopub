@@ -33,9 +33,8 @@ function uploadFileToGitHub($file_path, $file_name) {
     ));
     
     $response = curl_exec($curl);
-    echo $response;
-
     $data = json_decode($response);
+    
     return $data->content->download_url;
 }
 ?>
