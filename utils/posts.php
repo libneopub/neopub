@@ -35,7 +35,7 @@ function newNote($content, $categories)
 
 // Method to generate a new 
 // photo post. Returns the post.
-function newPhoto($file_url, $content, $categories = array())
+function newPhoto($file_url, $content, $categories)
 {
     global $site_url;
     global $site_author;
