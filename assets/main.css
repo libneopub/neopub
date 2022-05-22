@@ -223,6 +223,20 @@ button, input[type="submit"], input[type="button"] {
     cursor: pointer;
 }
 
+/* Images */
+
+.h-entry img {
+    max-width: 300px;
+    width: 100%;
+}
+
+/* Render sharp pixelart */
+.pixelart {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
 /* Misc & utilities */
 
 .warning, .error, .msg {
@@ -260,13 +274,6 @@ button, input[type="submit"], input[type="button"] {
 
 .get-your-own:hover {
     font-weight: 800;
-}
-
-/* Render sharp pixelart */
-.pixelart {
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-    image-rendering: pixelated;
 }
 
 @keyframes gradient {
