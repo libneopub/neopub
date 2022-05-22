@@ -45,7 +45,7 @@ function newPhoto($file_url, $content, $categories)
     $url =  "$site_url/post/$currentYear/$id";
     $author = array("name" => $site_author);
 
-    array_push($categories, "photo");
+    $categories[] = "photo";
 
     $content = Markdown::defaultTransform($content);
     $photo = "<img src='$file_url' class='u-photo' />";

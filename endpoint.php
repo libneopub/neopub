@@ -95,19 +95,19 @@ else if(isset($_POST['like-of'])) {
     sendWebmentions($url);
 } 
 else if(isset($_POST['bookmark-of'])) {
-    $post = newBookmark($_POST['content'], $_POST['bookmark-of'], $_POST['name'], $_POST['category']  || array());
+    $post = newBookmark($_POST['content'], $_POST['bookmark-of'], $_POST['name'], $_POST['category']);
     $url = publishPost($post);
     sendWebmentions($url);
 }
 else if(isset($_FILES['photo'])) {
     $file_path = $_FILES['photo']['tmp_name'];
     $file_url = uploadFileToGitHub($file_path, uniqid('IMG_'));
-    $post = newPhoto($file_url, $_POST['content'], $_POST['category'] || array());
+    $post = newPhoto($file_url, $_POST['content'], $_POST['category']);
     $url = publishPost($post);
     sendWebmentions($url);
 }
 else {
-    $post = newNote($_POST['content'], $_POST['category']  || array());
+    $post = newNote($_POST['content'], $_POST['category']);
     $url = publishPost($post);
     sendWebmentions($url);
 }
