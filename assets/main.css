@@ -225,7 +225,7 @@ button, input[type="submit"], input[type="button"] {
 
 /* Images */
 
-.h-entry img {
+.h-entry .e-content img {
     max-width: 300px;
     width: 100%;
 }
