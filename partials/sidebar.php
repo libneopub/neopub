@@ -13,6 +13,7 @@ require "config.php";
             <li><a href="/type/like">likes</a></li>
             <li><a href="/type/repost">reposts</a></li>
             <li><a href="/type/bookmark">bookmarks</a></li>
+            <li><a href="/tag/photo">photos</a></li>
         </ul>
     </nav>
 </section>
