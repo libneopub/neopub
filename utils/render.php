@@ -21,9 +21,11 @@ function showPost($post)
                     </a>
                     <p>
                         <?php
-                            foreach ($post->tags as $tag) {
-                                ?><a class="p-category" href="/tag/<?= $tag ?>">#<?= $tag ?></a> <?php
-                            } 
+                            if(isset($post->tags)) {
+                                foreach ($post->tags as $tag) {
+                                    ?><a class="p-category" href="/tag/<?= $tag ?>">#<?= $tag ?></a> <?php
+                                } 
+                            }
                         ?>
                     </p>
                 </div>
@@ -118,9 +120,11 @@ function showPost($post)
                     </a>
                     <p>
                         <?php
-                            foreach ($post->tags as $tag) {
-                                ?><a class="p-category" href="/tag/<?= $tag ?>">#<?= $tag ?></a> <?php
-                            } 
+                            if(isset($post->tags)) {
+                                foreach ($post->tags as $tag) {
+                                    ?><a class="p-category" href="/tag/<?= $tag ?>">#<?= $tag ?></a> <?php
+                                } 
+                            }
                         ?>
                     </p>
                 </div>
