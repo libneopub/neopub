@@ -16,11 +16,11 @@ $currentYear = date("Y");
 // request to log.json
 function debugEndpoint() 
 {
-    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+    header($_SERVER['SERVER_PROTOCOL'] . " 400 Bad Request");
     echo "You sent:\n";
     print_r($_POST);
 
-    $file = fopen('log.json', 'w+');
+    $file = fopen(__DIR__."/log.json", "w+");
     fwrite($file, json_encode($_POST));
     fclose($file);
 
