@@ -1,6 +1,6 @@
 <?php
-require "utils/token.php";
-require "config.php";
+require __DIR__."/token.php";
+require __DIR__."/../config.php";
 
 function uploadFileToGitHub($file_path, $file_name) {
     global $token, $github_user;

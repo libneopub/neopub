@@ -1,7 +1,7 @@
 <?php
 // Utils for getting and creating posts
 
-require "vendor/autoload.php";
+require __DIR__."/../vendor/autoload.php";
 use Michelf\Markdown;
 
 // Method to generate a new 

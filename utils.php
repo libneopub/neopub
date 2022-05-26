@@ -1,11 +1,11 @@
 <?php
 // Provides util functions for tasks
 
-require "config.php";
-require "utils/posts.php";
-require "utils/render.php";
-require "utils/mentions.php";
-require "utils/uploader.php";
+require __DIR__."/../config.php";
+require __DIR__."/posts.php";
+require __DIR__."/render.php";
+require __DIR__."/mentions.php";
+require __DIR__."/uploader.php";
 
 $currentYear = date("Y");
 
