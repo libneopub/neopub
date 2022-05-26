@@ -171,7 +171,7 @@ function publishPost($post)
 {
     global $currentYear;
 
-    if (file_exists(__DIR__."/../content/$currentYear.json")) {
+    if (file_exists(getFeedURL($currentYear))) {
         writePost($currentYear, $post);
     } else {
         createFeedForCurrentYear();
@@ -183,12 +183,12 @@ function publishPost($post)
 
 function writePost($year, $post) 
 {
-    $posts_json = file_get_contents(__DIR__."/../content/$year.json");
+    $posts_json = file_get_contents(getFeedURL($year));
     $posts = json_decode($posts_json);
 
     array_unshift($posts, $post);
 
-    $file = fopen(__DIR__."/../content/$year.json", 'w+');
+    $file = fopen(getFeedURL($year), 'w+');
     fwrite($file, json_encode($posts));
     fclose($file);
 }
@@ -197,7 +197,7 @@ function createFeedForCurrentYear()
 {
     global $currentYear;
 
-    $file = fopen(__DIR__."/../content/$currentYear.json", 'w');
+    $file = fopen(getFeedURL($currentYear), "w");
     fwrite($file, "[]");
     fclose($file);
 }
@@ -205,7 +205,7 @@ function createFeedForCurrentYear()
 // Method to get post by its ID
 function getPost($year, $id)
 {
-    $posts_json = file_get_contents(__DIR__."/../content/$year.json");
+    $posts_json = file_get_contents(getFeedURL($year));
     $posts = json_decode($posts_json);
 
     foreach ($posts as $post) {
@@ -219,8 +219,8 @@ function getPost($year, $id)
 // and render them.
 function listPosts($year) 
 {
-    if(file_exists(__DIR__."/../content/$year.json")) {
-        $posts_json = file_get_contents(__DIR__."/../content/$year.json");
+    if(file_exists(getFeedURL($year))) {
+        $posts_json = file_get_contents(getFeedURL($year));
         $posts = json_decode($posts_json);
     } else {
         $posts = [];
@@ -242,7 +242,7 @@ function listPosts($year)
 // of a post-type and render them.
 function listPostsOfType($year, $type = "note") 
 {
-    $posts_json = file_get_contents(__DIR__."/../content/$year.json");
+    $posts_json = file_get_contents(getFeedURL($year));
     $posts = json_decode($posts_json);
 
     $nothingHere = true;
@@ -263,7 +263,7 @@ function listPostsOfType($year, $type = "note")
 // of a post-type and render them.
 function listPostsWithTag($year, $tag) 
 {
-    $posts_json = file_get_contents(__DIR__."/../content/$year.json");
+    $posts_json = file_get_contents(getFeedURL($year));
     $posts = json_decode($posts_json);
 
     $nothingHere = true;
@@ -278,4 +278,10 @@ function listPostsWithTag($year, $tag)
     if($nothingHere) {
         showMessage("Nothing here. (anymore?)");
     }
+}
+
+// Get absolute URL to feed file for
+// specific year
+function getFeedURL($year) {
+    return __DIR__."/../content/$year.json";
 }
