@@ -8,6 +8,7 @@ $site_description = 'I\'m <a href="https://geheimesite.nl">Robin Boers</a>, but 
 $site_author = 'Robijntje';
 $site_author_profile_picture = '/assets/me.jpeg';
 $site_domain = "https://geheimesite.nl"; // used if the neolog isn't your main site
+$current_domain = "https//micro.geheimesite.nl"; // used for auth in plugins
 
 // IndieAuth
 $token_endpoint = 'https://tokens.indieauth.com/token';
