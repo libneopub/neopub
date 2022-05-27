@@ -310,10 +310,6 @@ button, input[type="submit"], input[type="button"] {
     color: rgb(73, 12, 12);
 }
 
-.msg {
-    color: white;
-}
-
 .error a {
     color: rgb(230, 52, 52);
 }
