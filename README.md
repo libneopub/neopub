@@ -4,4 +4,4 @@
 
 [Read more on the IndieWeb wiki](https://indieweb.org/neopub)
 
-![Screenshot](https://geheimesite.nl/images/websites/neolog.png)
+![Screenshot](https://indieweb.org/images/0/05/neopub-screenshot-1.png)
