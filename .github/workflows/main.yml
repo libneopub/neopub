@@ -22,3 +22,4 @@ jobs:
           **/.git*/**
           **/node_modules/**
           content/**.json
+          assets/main.css

@@ -5,8 +5,7 @@ html {
     margin-right: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    background-color: rgb(255, 102, 102);
-	background: linear-gradient(-45deg, #F59E0B, #DB2777, #0995ad, #38BDF8);
+    background-color: rgb(248, 251, 255);
 	background-size: 400% 400%;
 	animation: gradient 60s ease infinite;
 	height: 100vh;
@@ -39,10 +38,9 @@ body {
 header {
     background-color: white;
     padding: 10px;
-    border: 1px solid rgb(171, 170, 170);
-    border-top: none;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border: 1px solid rgb(225, 225, 225);
+    margin-top: 10px;
+    display: none;
 }
 
 .h-card > div {
@@ -63,18 +61,12 @@ address.properties {
 /* Sidebar */
 
 .sidebar-section {
-    background-color: white;
     padding: 10px;
-    border: 1px solid rgb(171, 170, 170);
-    border-radius: 6px;
     margin-top: 10px;
 }
 
 .sidebar-section:first-child {
-    border-top: none;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    margin-top: 0;
+    margin-top: 15px;
 }
 
 .sidebar-section h3 {
@@ -93,17 +85,61 @@ address.properties {
 
 nav ul {
     list-style: none;
+    padding-left: 18px;
 }
 
 nav ul li a {
     font-weight: 600;
-    font-size: 23px;
+    font-size: 26px;
+    color: black;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+nav ul li a::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin-right: 20px;
+    width: 20px;
+}
+
+nav ul li a.home::before {
+    content: "\e1b0";
+}
+
+nav ul li a.replies::before {
+    content: "\f3e5";
+}
+
+nav ul li a.notes::before {
+    content: "\f036";
+}
+
+nav ul li a.likes::before {
+    content: "\f004";
+}
+
+nav ul li a.reposts::before {
+    content: "\e4bb";
+}
+
+nav ul li a.bookmarks::before {
+    content: "\f02e";
+}
+
+nav ul li a.photos::before {
+    content: "\f030";
 }
 
 /* Link styles */
 
 a {
-    color: rgb(255, 102, 102);
+    color: rgb(29, 155, 240);
     text-decoration: none;
 }
 a:hover:not(.no-underline), a:focus:not(.no-underline) {
@@ -115,15 +151,14 @@ a:active {
 
 /* Posts & comments */
 .h-entry, .comment {
-    padding: 7px;
-    border: 1px solid rgb(171, 170, 170);
+    padding: 11px;
+    border: 1px solid rgb(225, 225, 225);
     background-color: white;
-    border-radius: 6px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 7px;
     margin-top: 15px;
-    box-shadow: 10px 5px rgb(94, 152, 152), 11px 6px rgb(57, 107, 107);
+    border-radius: 11px;
 }
 
 .h-entry > div:last-child {
@@ -140,10 +175,15 @@ a:active {
 }
 
 .u-photo, .comment-photo {
-    border-radius: 6px;
+    border-radius: 50%;
     aspect-ratio: 1/1;
     object-fit: cover;
 }
+
+.e-content .u-photo {
+    border-radius: 0;
+}
+
 .u-photo {
     width: 60px;
 }
@@ -177,6 +217,24 @@ time, .sub * {
     flex-direction: column;
 }
 
+.h-entry > div:first-child, .comment > div:first-child {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.h-entry > div:first-child p, .comment > div:first-child p {
+    display: block;
+    margin: 0;
+    font-size: 20px;
+}
+
+.h-entry > div:first-child p a, .comment > div:first-child p a {
+    color: black;
+    font-weight: 600;
+}
+
 /* Comment section */
 
 .comments {
@@ -192,13 +250,8 @@ time, .sub * {
     margin-top: 90px;
 }
 
-.comment-section h2, .comment-section form a, .comment-section form p, footer * {
-    color: white;
-}
-
 .comment-section form a, footer a {
     font-weight: bold;
-    text-decoration: underline dotted;
 }
 
 /* Forms */
@@ -216,7 +269,7 @@ input:active, input:not([type="submit"]):not([type="button"]):focus, button:acti
 input, button {
     color: black;
     border-radius: 0;
-    border: 1px solid #a2a2a2;
+    border: 1px solid rgb(225, 225, 225);
 }
 
 button, input[type="submit"], input[type="button"] {
