@@ -7,7 +7,7 @@ require __DIR__."/utils/render.php";
 require __DIR__."/utils/mentions.php";
 require __DIR__."/utils/uploader.php";
 
-$currentYear = date("Y");
+$current_year = date("Y");
 
 // Misc utils
 

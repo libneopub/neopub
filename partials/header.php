@@ -3,7 +3,7 @@
 
 require "config.php";
 
-$currentYear = date("Y");
+$current_year = date("Y");
 ?>
 
 <header class="h-card" rel="author" id="author">
@@ -19,7 +19,7 @@ $currentYear = date("Y");
                 <?php if($twitter_user !== "") { ?>
                     <a rel="me" href="https://twitter.com/<?= $twitter_user ?>">twitter</a> ∙
                 <?php } ?>
-                <a href="/content/<?= $currentYear ?>.json">json</a> ∙
+                <a href="/content/<?= $current_year ?>.json">json</a> ∙
                 <a href="/feed">rss</a> 
             </address>
             <p class="p-note" hidden>

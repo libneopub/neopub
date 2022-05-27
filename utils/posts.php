@@ -10,10 +10,10 @@ function newNote($content, $categories)
 {
     global $site_url;
     global $site_author;
-    global $currentYear;
+    global $current_year;
 
     $id = uniqid();
-    $url =  "$site_url/post/$currentYear/$id";
+    $url =  "$site_url/post/$current_year/$id";
     $author = array("name" => $site_author);
 
     $content = Markdown::defaultTransform($content);
@@ -39,10 +39,10 @@ function newPhoto($file_url, $content, $categories)
 {
     global $site_url;
     global $site_author;
-    global $currentYear;
+    global $current_year;
 
     $id = uniqid();
-    $url =  "$site_url/post/$currentYear/$id";
+    $url =  "$site_url/post/$current_year/$id";
     $author = array("name" => $site_author);
 
     $categories[] = "photo";
@@ -73,10 +73,10 @@ function newReply($content, $replyto)
 {
     global $site_url;
     global $site_author;
-    global $currentYear;
+    global $current_year;
 
     $id = uniqid();
-    $url =  "$site_url/post/$currentYear/$id";
+    $url =  "$site_url/post/$current_year/$id";
     $author = array("name" => $site_author);
 
     $content = Markdown::defaultTransform($content);
@@ -100,10 +100,10 @@ function newReply($content, $replyto)
 function newRepost($repostof)
 {
     global $site_url;
-    global $currentYear;
+    global $current_year;
 
     $id = uniqid();
-    $url =  "$site_url/post/$currentYear/$id";
+    $url =  "$site_url/post/$current_year/$id";
 
     $post = array(
         "type" => "repost",
@@ -121,10 +121,10 @@ function newRepost($repostof)
 function newLike($likeof)
 {
     global $site_url;
-    global $currentYear;
+    global $current_year;
 
     $id = uniqid();
-    $url =  "$site_url/post/$currentYear/$id";
+    $url =  "$site_url/post/$current_year/$id";
 
     $post = array(
         "type" => "like",
@@ -142,10 +142,10 @@ function newLike($likeof)
 function newBookmark($content, $bookmarkof, $title, $categories)
 {
     global $site_url;
-    global $currentYear;
+    global $current_year;
 
     $id = uniqid();
-    $url =  "$site_url/post/$currentYear/$id";
+    $url =  "$site_url/post/$current_year/$id";
 
     $content = Markdown::defaultTransform($content);
 
@@ -169,13 +169,13 @@ function newBookmark($content, $bookmarkof, $title, $categories)
 // Returns the URI of the published post.
 function publishPost($post)
 {
-    global $currentYear;
+    global $current_year;
 
-    if (file_exists(getFeedURL($currentYear))) {
-        writePost($currentYear, $post);
+    if (file_exists(getFeedURL($current_year))) {
+        writePost($current_year, $post);
     } else {
         createFeedForCurrentYear();
-        writePost($currentYear, $post);
+        writePost($current_year, $post);
     }
 
     return $post["uri"];
@@ -195,9 +195,9 @@ function writePost($year, $post)
 
 function createFeedForCurrentYear() 
 {
-    global $currentYear;
+    global $current_year;
 
-    $file = fopen(getFeedURL($currentYear), "w");
+    $file = fopen(getFeedURL($current_year), "w");
     fwrite($file, "[]");
     fclose($file);
 }

@@ -13,7 +13,7 @@ require "utils.php";
 <body>
     <main>
         <?php include "partials/header.php" ?>
-        <?php listPosts($currentYear) ?>
+        <?php listPosts($current_year) ?>
     </main>
     <aside>
         <?php include "partials/sidebar.php" ?>

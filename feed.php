@@ -18,8 +18,8 @@ include "utils.php";
         <atom:link href="<?= "$site_url/feed" ?>" rel="self" type="application/rss+xml" />
         
         <?php
-            $currentYear = date('Y');
-            $file = "content/$currentYear.json";
+            $current_year = date('Y');
+            $file = "content/$current_year.json";
 
             if(file_exists($file) && filesize($file) > 0) {
                 $handle = fopen($file, "a+");
