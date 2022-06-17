@@ -159,6 +159,7 @@ a:active {
     gap: 7px;
     margin-top: 15px;
     border-radius: 11px;
+    overflow-x: hidden;
 }
 
 .h-entry > div:last-child {
