@@ -4,4 +4,4 @@
 
 [Read more on the IndieWeb wiki](https://indieweb.org/neopub)
 
-![Screenshot](screenshot.png)
+![Screenshot](https://indieweb.org/images/0/05/neopub-screenshot-1.png)
