@@ -4,6 +4,12 @@
 // Method to render a single post
 function showPost($post)
 {
+    $posse_links = 
+       '<div hidden>
+            <a class="u-syndication" href="https://brid.gy/publish/mastodon"></a>
+            <a class="u-syndication" href="https://brid.gy/publish/twitter"></a>
+        </div>';
+
     if ($post->type === "note") {
 
     ?>
@@ -14,6 +20,8 @@ function showPost($post)
                 <div class="e-content p-summary p-name">
                     <?= $post->content ?>
                 </div>
+
+                <?= $posse_links ?>
 
                 <div class="sub">
                     <a class="no-underline u-url" href="<?= $post->uri ?>">
@@ -48,6 +56,8 @@ function showPost($post)
                     <div class="p-summary e-content">
                         <?= $post->content ?>
                     </div>
+
+                    <?= $posse_links ?>
                 </div>           
 
                 <a class="no-underline u-url" href="<?= $post->uri ?>">
@@ -70,6 +80,8 @@ function showPost($post)
                     <a class="u-repost-of h-cite" href="<?= $post->{'repost-of'} ?>"><?= $post->{'repost-of'} ?></a>
                 </p>
 
+                <?= $posse_links ?>
+
                 <a class="no-underline u-url" href="<?= $post->uri ?>">
                     <time class="dt-published"><?= $post->date ?></time>
                 </a>
@@ -88,6 +100,8 @@ function showPost($post)
                         <i class="fa-solid fa-heart"></i> liked 
                         <a class="u-like-of h-cite" href="<?= $post->{'like-of'} ?>"><?= $post->{'like-of'} ?></a>
                     </p>
+
+                    <?= $posse_links ?>
     
                     <a class="no-underline u-url" href="<?= $post->uri ?>">
                         <time class="dt-published"><?= $post->date ?></time>
@@ -112,6 +126,8 @@ function showPost($post)
                     <div class="p-summary e-content">
                         <?= $post->content ?>
                     </div>
+
+                    <?= $posse_links ?>
                 </div>
 
                 <div class="sub">
