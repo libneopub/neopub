@@ -1,5 +1,5 @@
 <?php
-// Template for rendering a single post
+// Template for rendering all posts from a year
 
 require "config.php";
 require "utils.php";
