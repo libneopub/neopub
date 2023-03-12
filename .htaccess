@@ -1,12 +1,28 @@
 RewriteEngine On
+RewriteBase /
+
+AddDefaultCharset UTF-8
+DefaultLanguage nl-NL
 
 AddCharset UTF-8 .html
 AddCharset UTF-8 .php
 
+# Preserve bandwidth for PHP enabled servers
+<ifmodule mod_php4.c>
+	php_value zlib.output_compression 16386
+</ifmodule>
+
+# Google, FLoC off! (and other privacy headers)
+Header set Permissions-Policy "interest-cohort=()"
+Header set Referrer-Policy "no-referrer"
+Header set X-Content-Type-Options "nosniff"
+
+# Add expire headers (prevents hotlinking)
 <FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf)$">
 	Header set Expires "access plus 1 day"
 </FilesMatch>
 
+# Compress files
 <FilesMatch "\.(js|css|html|htm|php|xml)$">
 	SetOutputFilter DEFLATE
 </FilesMatch>
@@ -19,14 +35,8 @@ RewriteRule ^type/(.*)$ ./type.php?type=$1
 RewriteRule ^tag/(.*)$ ./tag.php?tag=$1
 
 # Remove .php from filenames
-RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
-
-# Remove .html from filenames
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 # GZip compression
 <IfModule mod_deflate.c>
